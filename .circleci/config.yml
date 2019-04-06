@@ -42,5 +42,5 @@ jobs:
       - run: mvn clean package
       
       - store_artifacts:
-          path: target/
+          path: universal-reportplus/target/
           destination: jars
