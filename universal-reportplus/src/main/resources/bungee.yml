@@ -1,0 +1,4 @@
+name: ReportPlus
+version: ${project.buildVer}
+main: me.xbones.reportplus.bungee.ReportPlus
+author: xBones/Fernthedev

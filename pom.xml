@@ -6,7 +6,18 @@
 
     <groupId>me.xbones.reportplus</groupId>
     <artifactId>ReportPlus</artifactId>
-    <version>7.0                                                                                                                                                                                                            </version>
+    <packaging>pom</packaging>
+    <version>7.0</version>
+    <properties>
+        <project.buildVer>7.1</project.buildVer>
+    </properties>
+    <modules>
+        <module>bungee</module>
+        <module>spigot</module>
+        <module>reportplus-api</module>
+        <module>core</module>
+        <module>universal-reportplus</module>
+    </modules>
 
     <repositories>
         <repository>
@@ -30,31 +41,17 @@
             <name>jcenter-bintray</name>
             <url>http://jcenter.bintray.com</url>
         </repository>
+
     </repositories>
 
     <dependencies>
         <dependency>
         <groupId>com.github.Fernthedev</groupId>
         <artifactId>FernAPI</artifactId>
-        <version>LATEST</version>
+        <version>1.6.4</version>
     </dependency>
-        <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.12-R0.1-SNAPSHOT</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>net.milkbowl.vault</groupId>
-            <artifactId>VaultAPI</artifactId>
-            <version>1.7</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-                <groupId>com.github.ConnorLinfoot</groupId>
-                <artifactId>TitleAPI</artifactId>
-                <version>LATEST</version>
-            </dependency>
+
+
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -67,13 +64,7 @@
             <version>2.11.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>net.md-5</groupId>
-            <artifactId>bungeecord-api</artifactId>
-            <version>1.12-SNAPSHOT</version>
-            <type>jar</type>
-            <scope>provided</scope>
-        </dependency>
+
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
@@ -86,6 +77,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 
@@ -107,6 +105,54 @@
 
                 <configuration>
                     <minimizeJar>true</minimizeJar>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+
+                    <filters>
+                        <filter>
+                            <artifact>com.fasterxml.jackson.core:jackson-databind</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                        <filter>
+                            <artifact>com.fasterxml.jackson.core:*</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                        <filter>
+                            <artifact>com.squareup.okhttp3:*</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                        <filter>
+                            <artifact>com.neovisionaries:*</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                        <filter>
+                            <artifact>com.squareup.okio:*</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+
+
+                        <filter>
+                            <artifact>me.xbones.reportplus:bungee</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                        <filter>
+                            <artifact>me.xbones.reportplus:spigot</artifact>
+                            <includes>
+                                <include>**</include>
+                            </includes>
+                        </filter>
+                    </filters>
                 </configuration>
 
                 <executions>

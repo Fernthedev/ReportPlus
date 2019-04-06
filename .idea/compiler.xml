@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="reportplusapi" />
+        <module name="reportplus-api" />
+        <module name="universal-reportplus" />
+        <module name="core" />
+        <module name="spigot" />
+        <module name="universalreportplus" />
+        <module name="bungee" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bungee" target="1.8" />
+      <module name="core" target="1.8" />
+      <module name="reportplus-api" target="1.8" />
+      <module name="reportplusapi" target="1.8" />
+      <module name="ReportPlusRedo" target="1.8" />
+      <module name="spigot" target="1.8" />
+      <module name="universal-reportplus" target="1.8" />
+      <module name="universalreportplus" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

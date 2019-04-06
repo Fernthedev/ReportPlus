@@ -1,0 +1,76 @@
+Prefix: '&cRep&7orts&4+ | '
+Enabled-Modules:
+  Reporting: true
+  Chat-Sync: true
+  Command-log:
+    Enabled: true
+    Dont-Log:
+    - 'login'
+    - 'register'
+    - 'changepass'
+  Announcements: false
+  Log-leave-and-join: true
+  Punishment-Broadcast:
+    Enabled: true
+    Channel-ID: "[INSERT ID HERE]"
+  Console: true
+  MySQL:
+    Enabled: true
+    Host: "localhost"
+    Port: 3306
+    Database: "ReportPlus"
+    Username: "root"
+    Password: "123"
+  Server-Stop-Start: true
+
+User-Notifications:
+  YourName:
+  - '&cReport Closed Message'
+
+## Your discord bot token
+Discord-Bot-Token: "[INSERT TOKEN HERE]"
+
+## Change bot game
+Change-Game: true
+
+## Discord bot game - Your bot will be playing whatever you enter below
+Game: '%players% players are currently online!'
+
+Auto-Refresh-Game: true
+
+## Server Name to be used
+Server-Name: "Report+"
+
+## Server Icon Link for the help command
+Server-Icon-Link: "https://cdn.discordapp.com/embed/avatars/0.png"
+
+## DISCORD REPORTS CHANNEL
+Discord-Channel-ID: "[INSERT ID HERE]"
+
+## DISCORD BOT COMMAND PREFIX:
+Discord-Bot-Command-Prefix: "!"
+
+## DISCORD COMMAND CHANNEL ID:
+Discord-CMD-Channel-ID: "[INSERT ID HERE]"
+
+## DISCORD CHAT SYNC CHANNEL ID:
+Discord-MC-Channel-ID: "[INSERT ID HERE]"
+
+## Announcements
+Announcements:
+- '&cReports+! Complete integration with your Discord server!'
+
+Interval: 300
+Discord-Announcements-Channel-ID: "[INSERT ID HERE]"
+
+Server-Stop-Start-Channel: "[INSERT ID HERE]"
+
+## Cooldown
+Command-cooldown: 10
+
+Max-Chat-Sync-Characters: 3000
+
+Console-Channel-ID: "[INSERT ID HERE]"
+
+Chat-Sync-Banned-Words:
+  - '@everyone'

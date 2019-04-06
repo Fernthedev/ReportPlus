@@ -1,4 +1,0 @@
-name: ReportPlus
-version: ${project.version}
-main: me.xbones.reportplus.bungee.ReportPlus
-author: xBones
