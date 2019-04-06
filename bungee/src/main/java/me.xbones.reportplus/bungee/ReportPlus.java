@@ -3,6 +3,7 @@ package me.xbones.reportplus.bungee;
 import com.github.fernthedev.fernapi.server.bungee.FernBungeeAPI;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
+import me.xbones.reportplus.api.ReportPlusAPI;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.bungee.config.BungeeConfig;
 import me.xbones.reportplus.bungee.events.BungeePlayerReportEvent;
@@ -80,6 +81,8 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         checkDependencies();
 
         initializeVariables();
+
+
 
         try {
             core.initializeBot(this, TOKEN  , cmdPrefix);

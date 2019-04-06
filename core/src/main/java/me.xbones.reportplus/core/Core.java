@@ -5,6 +5,7 @@ import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import lombok.NonNull;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
+import me.xbones.reportplus.api.ReportPlusAPI;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.commands.Command;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
@@ -44,6 +45,7 @@ public class Core {
         }
 
         api = new ReportPlusAPIHandler(this);
+        ReportPlusAPI.getInstance().setup(api);
 
     }
 
