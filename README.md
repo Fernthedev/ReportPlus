@@ -43,3 +43,4 @@ To use the API, just use
 ReportPlusAPI.getApi().
 ```
 There's not much to say, though if you do need help just make a github issue and it will be answered as soon as possible
+If you need other methods of contacting, use the original discord server for the original project if it's still up
