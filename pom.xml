@@ -9,14 +9,11 @@
     <packaging>pom</packaging>
     <version>7.0</version>
     <properties>
-        <project.buildVer>7.1</project.buildVer>
+        <project.buildVer>7.2</project.buildVer>
     </properties>
     <modules>
-        <module>bungee</module>
-        <module>spigot</module>
         <module>reportplus-api</module>
-        <module>core</module>
-        <module>universal-reportplus</module>
+        <module>reportplus</module>
     </modules>
 
     <repositories>
@@ -141,7 +138,7 @@
 
 
                         <filter>
-                            <artifact>me.xbones.reportplus:bungee</artifact>
+                            <artifact>me.xbones.reportplus:me.xbones.reportplus.bungee</artifact>
                             <includes>
                                 <include>**</include>
                             </includes>
@@ -171,6 +168,7 @@
                 <filtering>true</filtering> <!-- this is the important part, it's what replaces, filters, all placeholders in the resources folder (such as ${project.version} in plugin.yml) -->
             </resource>
         </resources>
+        <finalName>${artifactId}-${project.buildVer}</finalName>
     </build>
 
 </project>

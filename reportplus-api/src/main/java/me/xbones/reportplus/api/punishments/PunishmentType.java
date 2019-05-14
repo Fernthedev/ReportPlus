@@ -1,7 +1,6 @@
 package me.xbones.reportplus.api.punishments;
 
 public enum PunishmentType {
-
     MUTE,
     BAN,
     KICK,

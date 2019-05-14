@@ -3,13 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ReportPlusRedo.iml" filepath="$PROJECT_DIR$/.idea/ReportPlusRedo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bungee/bungee.iml" filepath="$PROJECT_DIR$/bungee/bungee.iml" />
-      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reportplus/reportplus.iml" filepath="$PROJECT_DIR$/reportplus/reportplus.iml" />
       <module fileurl="file://$PROJECT_DIR$/reportplus-api/reportplus-api.iml" filepath="$PROJECT_DIR$/reportplus-api/reportplus-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/reportplus-api/reportplusapi.iml" filepath="$PROJECT_DIR$/reportplus-api/reportplusapi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spigot/spigot.iml" filepath="$PROJECT_DIR$/spigot/spigot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/universal-reportplus/universal-reportplus.iml" filepath="$PROJECT_DIR$/universal-reportplus/universal-reportplus.iml" />
-      <module fileurl="file://$PROJECT_DIR$/universal-reportplus/universalreportplus.iml" filepath="$PROJECT_DIR$/universal-reportplus/universalreportplus.iml" />
     </modules>
   </component>
 </project>

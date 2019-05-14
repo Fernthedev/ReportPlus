@@ -3,7 +3,6 @@ package me.xbones.reportplus.api;
 import me.xbones.reportplus.api.punishments.Punishment;
 import net.dv8tion.jda.core.EmbedBuilder;
 
-import java.awt.*;
 import java.util.List;
 
 public interface IAPIHandler {
