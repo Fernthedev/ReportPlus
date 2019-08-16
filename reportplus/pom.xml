@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ReportPlus</artifactId>
         <groupId>me.xbones.reportplus</groupId>
-        <version>7.0</version>
+        <version>7.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,12 +15,12 @@
         <dependency>
             <groupId>me.xbones.reportplus</groupId>
             <artifactId>reportplus-api</artifactId>
-            <version>7.0</version>
+            <version>7.3</version>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.14.1-R0.1-SNAPSHOT</version>
+            <version>1.14.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -57,11 +57,6 @@
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>me.xbones.reportplus</groupId>
-            <artifactId>reportplus-api</artifactId>
-            <version>7.0</version>
         </dependency>
     </dependencies>
 
