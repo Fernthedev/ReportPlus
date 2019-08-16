@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ReportPlus</artifactId>
         <groupId>me.xbones.reportplus</groupId>
-        <version>7.0</version>
+        <version>7.3</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
