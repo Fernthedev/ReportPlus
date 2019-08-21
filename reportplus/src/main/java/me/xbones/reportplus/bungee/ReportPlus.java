@@ -1,6 +1,8 @@
 package me.xbones.reportplus.bungee;
 
 import com.github.fernthedev.fernapi.server.bungee.FernBungeeAPI;
+import com.github.fernthedev.fernapi.universal.Universal;
+import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import lombok.Getter;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
@@ -18,9 +20,9 @@ import me.xbones.reportplus.core.ReportPlusAPIHandler;
 import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Activity;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.ProxyServer;
@@ -235,6 +237,11 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         return core;
     }
 
+    @Override
+    public void NoPerm(IFPlayer p) {
+
+    }
+
     public void NoPerm(ProxiedPlayer p){
         p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&',
                 prefix + " " + utils.getMessagesConfig().getString("No-Permission"))));
@@ -343,15 +350,10 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
     @Override
     public void setGame(JDA jda) {
-        jda.getPresence().setGame(Game.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(getProxy().getOnlineCount()))));
+        jda.getPresence().setActivity(Activity.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(getProxy().getOnlineCount()))));
 
         if(getConfig().getBoolean("Auto-Refresh-Game")){
-            getProxy().getScheduler().schedule(this, new Runnable() {
-                @Override
-                public void run() {
-                    jda.getPresence().setGame(Game.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(getProxy().getOnlineCount()))));
-                }
-            }, 1L, 10, TimeUnit.SECONDS);
+            getProxy().getScheduler().schedule(this, () -> jda.getPresence().setActivity(Activity.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(getProxy().getOnlineCount())))), 1L, 10, TimeUnit.SECONDS);
         }
     }
 
@@ -590,5 +592,30 @@ utils.saveReportsToConfig();
         BungeePlayerReportEvent event = new BungeePlayerReportEvent(core,player,reported,report,type);
         ProxyServer.getInstance().getPluginManager().callEvent(event);
         return event.isCancelled();
+    }
+
+    @Override
+    public String getStringFromMessages(String s) {
+        return getUtils().getMessagesConfig().getString(s);
+    }
+
+    @Override
+    public void listReports(IFPlayer p, int page) {
+        listReports((ProxiedPlayer) Universal.getMethods().convertFPlayerToPlayer(p), page);
+    }
+
+    @Override
+    public boolean getBooleanFromConfig(String path) {
+        return config.getBoolean(path);
+    }
+
+    @Override
+    public int getIntFromConfig(String path) {
+        return config.getInt(path);
+    }
+
+    @Override
+    public String getVersion() {
+        return getDescription().getVersion();
     }
 }

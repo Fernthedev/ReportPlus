@@ -3,10 +3,11 @@ package me.xbones.reportplus.core.eventlisteners;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import me.xbones.reportplus.core.Core;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
-import net.dv8tion.jda.core.events.Event;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.EventListener;
+import net.dv8tion.jda.api.events.GenericEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.EventListener;
 
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 
 public class MessageCreatedListener implements EventListener {
@@ -19,7 +20,7 @@ public class MessageCreatedListener implements EventListener {
     }
 
     @Override
-    public void onEvent(Event event) {
+    public void onEvent(@Nonnull GenericEvent event) {
         if(event instanceof MessageReceivedEvent){
             MessageReceivedEvent e = (MessageReceivedEvent)event;
             String id = e.getChannel().getId();

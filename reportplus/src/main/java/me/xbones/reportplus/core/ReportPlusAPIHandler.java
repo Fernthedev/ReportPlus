@@ -3,11 +3,11 @@ package me.xbones.reportplus.core;
 import me.xbones.reportplus.api.IAPIHandler;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
+import me.xbones.reportplus.api.punishments.Punishment;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
 import me.xbones.reportplus.core.exception.ExceptionType;
 import me.xbones.reportplus.core.exception.ReportPlusException;
-import me.xbones.reportplus.api.punishments.Punishment;
-import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.awt.*;
 import java.util.List;

@@ -11,9 +11,9 @@ import me.xbones.reportplus.core.commands.Command;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
 import me.xbones.reportplus.core.eventlisteners.MessageCreatedListener;
 import me.xbones.reportplus.core.eventlisteners.ReadyEventListener;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
 
 import javax.security.auth.login.LoginException;
 import java.awt.*;
@@ -34,8 +34,7 @@ public class Core {
 
         this.commandPrefix = prefix;
             jda = new JDABuilder(token)
-                .addEventListener(new MessageCreatedListener(this))
-                .addEventListener(new ReadyEventListener(this))
+                .addEventListeners(new MessageCreatedListener(this), new ReadyEventListener(this))
                 .build();
 
         jda.awaitReady();

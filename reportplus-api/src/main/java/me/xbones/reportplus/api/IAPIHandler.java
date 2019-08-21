@@ -1,7 +1,7 @@
 package me.xbones.reportplus.api;
 
 import me.xbones.reportplus.api.punishments.Punishment;
-import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.util.List;
 

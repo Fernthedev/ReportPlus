@@ -1,7 +1,8 @@
 package me.xbones.reportplus.core.commands;
+
 import me.xbones.reportplus.core.Core;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class ListAnnouncementsCommand extends Command {
 	

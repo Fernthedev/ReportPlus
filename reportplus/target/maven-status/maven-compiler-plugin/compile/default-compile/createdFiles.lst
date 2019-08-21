@@ -27,12 +27,13 @@ me\xbones\reportplus\spigot\listeners\PlayerDeathListener.class
 me\xbones\reportplus\bungee\Bstats\Metrics$SingleLineChart.class
 me\xbones\reportplus\bungee\listeners\PlayerJoinListener$1.class
 me\xbones\reportplus\core\commands\DelAnnouncementCommand.class
+me\xbones\reportplus\core\universalcommands\ReportPlusCommand.class
 me\xbones\reportplus\bungee\commands\ListReportsCMD.class
 me\xbones\reportplus\bungee\Bstats\Metrics.class
 me\xbones\reportplus\bungee\commands\CloseReportCMD.class
 me\xbones\reportplus\spigot\inventories\ConfigInventory.class
-me\xbones\reportplus\bungee\ReportPlus$3.class
 me\xbones\reportplus\spigot\Bstats\Metrics.class
+me\xbones\reportplus\core\universalcommands\ListReportsCMD.class
 me\xbones\reportplus\spigot\listeners\PlayerLeaveListener.class
 me\xbones\reportplus\core\IConfig.class
 me\xbones\reportplus\spigot\commands\ReportCommand.class
@@ -60,10 +61,12 @@ me\xbones\reportplus\spigot\inventories\InventoryManager.class
 me\xbones\reportplus\spigot\Bstats\Metrics$1.class
 me\xbones\reportplus\core\RPlayer.class
 me\xbones\reportplus\spigot\chatcomponentapi\ChatComponentMessage.class
+me\xbones\reportplus\core\chatcomponentapi\UniversalChatComponentMessage.class
 me\xbones\reportplus\core\MySQL\MySQL.class
 me\xbones\reportplus\bungee\commands\ReportCommand.class
 me\xbones\reportplus\core\exception\ReportPlusException.class
 me\xbones\reportplus\bungee\commands\TXTCmd.class
+me\xbones\reportplus\core\universalcommands\TXTCmd.class
 me\xbones\reportplus\bungee\listeners\PlayerChatListener.class
 me\xbones\reportplus\spigot\ReportPlus.class
 me\xbones\reportplus\core\configuration\ConfigurationManager.class
@@ -77,6 +80,7 @@ me\xbones\reportplus\spigot\listeners\InventoryClickListener$1.class
 me\xbones\reportplus\spigot\listeners\PlayerJoinListener.class
 me\xbones\reportplus\core\commands\Command.class
 me\xbones\reportplus\bungee\listeners\PlayerLeaveListener.class
+me\xbones\reportplus\core\universalcommands\ReportCommand.class
 me\xbones\reportplus\core\commands\ListAnnouncementsCommand.class
 me\xbones\reportplus\core\eventlisteners\ReadyEventListener.class
 me\xbones\reportplus\bungee\Bstats\Metrics$AdvancedBarChart.class
@@ -87,6 +91,8 @@ me\xbones\reportplus\spigot\inventories\ListReportsInventory.class
 me\xbones\reportplus\core\MySQL\MySQLManager.class
 me\xbones\reportplus\spigot\Bstats\Metrics$SimpleBarChart.class
 me\xbones\reportplus\core\events\PlayerReportEvent.class
+me\xbones\reportplus\core\universalcommands\CloseReportCMD.class
+me\xbones\reportplus\core\universalcommands\CmdCMD.class
 me\xbones\reportplus\core\ReportPlusAPIHandler.class
 me\xbones\reportplus\spigot\inventories\ReportInventory.class
 me\xbones\reportplus\spigot\commands\ListReportsCMD.class

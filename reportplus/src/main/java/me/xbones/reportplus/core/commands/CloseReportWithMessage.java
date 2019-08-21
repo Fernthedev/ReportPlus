@@ -1,9 +1,10 @@
 package me.xbones.reportplus.core.commands;
-import me.xbones.reportplus.core.Core;
+
 import me.xbones.reportplus.api.Report;
-import net.dv8tion.jda.core.Permission;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import me.xbones.reportplus.core.Core;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class CloseReportWithMessage extends Command {
 

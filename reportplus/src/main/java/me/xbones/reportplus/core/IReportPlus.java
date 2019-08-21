@@ -1,11 +1,12 @@
 package me.xbones.reportplus.core;
 
+import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.MySQL.MySQLManager;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.JDA;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
 
 import java.util.List;
 import java.util.UUID;
@@ -67,4 +68,20 @@ public interface IReportPlus {
     void sendConsole(String message);
 
     boolean callReportEvent(IRPlayer player, String reported, String report, ReportType type);
+
+    String getStringFromMessages(String path);
+
+    void listReports(IFPlayer p, int page);
+
+    boolean getBooleanFromConfig(String path);
+
+    int getIntFromConfig(String path);
+
+    Core getCore();
+
+    void NoPerm(IFPlayer p);
+
+    public String getVersion();
+
+    void setReportsList(List<Report> reports);
 }

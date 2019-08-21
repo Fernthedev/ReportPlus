@@ -2,6 +2,8 @@ package me.xbones.reportplus.spigot;
 
 import com.connorlinfoot.titleapi.TitleAPI;
 import com.github.fernthedev.fernapi.server.spigot.FernSpigotAPI;
+import com.github.fernthedev.fernapi.universal.Universal;
+import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
@@ -13,19 +15,21 @@ import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
 import me.xbones.reportplus.spigot.Bstats.Metrics;
+import me.xbones.reportplus.spigot.chatcomponentapi.ChatComponentMessage;
 import me.xbones.reportplus.spigot.commands.*;
 import me.xbones.reportplus.spigot.config.SpigotConfig;
 import me.xbones.reportplus.spigot.events.SpigotPlayerReportEvent;
 import me.xbones.reportplus.spigot.inventories.InventoryManager;
 import me.xbones.reportplus.spigot.listeners.*;
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.entities.Game;
-import net.md_5.bungee.api.ChatColor;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.entities.Activity;
+import net.md_5.bungee.api.chat.ClickEvent;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 import org.apache.logging.log4j.LogManager;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -351,13 +355,13 @@ ex.printStackTrace();
 
     @Override
     public void setGame(JDA jda) {
-        jda.getPresence().setGame(Game.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(Bukkit.getOnlinePlayers().size()))));
+        jda.getPresence().setActivity(Activity.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(Bukkit.getOnlinePlayers().size()))));
 
         if(getConfig().getBoolean("Auto-Refresh-Game")){
             getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
                 @Override
                 public void run() {
-                    jda.getPresence().setGame(Game.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(Bukkit.getOnlinePlayers().size()))));
+                    jda.getPresence().setActivity(Activity.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(Bukkit.getOnlinePlayers().size()))));
                 }
             }, 1L, 10 * 20);
         }
@@ -524,6 +528,17 @@ ex.printStackTrace();
         return core;
     }
 
+    @Override
+    public void NoPerm(IFPlayer p) {
+
+    }
+
+    @Override
+    public String getVersion() {
+        return getDescription().getVersion();
+    }
+
+
     public Permission getPermission() {
         return permission;
     }
@@ -548,5 +563,68 @@ ex.printStackTrace();
         Bukkit.getPluginManager().callEvent(event);
         return event.isCancelled();
     }
+
+    @Override
+    public String getStringFromMessages(String path) {
+        return getUtils().getMessagesConfig().getString(path);
+    }
+
+    static <T> List<List<T>> chopped(List<T> list, final int L) {
+        List<List<T>> parts = new ArrayList<List<T>>();
+        final int N = list.size();
+        for (int i = 0; i < N; i += L) {
+            parts.add(new ArrayList<T>(
+                    list.subList(i, Math.min(N, i + L)))
+            );
+        }
+        return parts;
+    }
+
+    public void listReports(Player p, int pageNumber){
+        int pageIndex = pageNumber - 1;
+        if(reportsList.size() < 1){
+            ChatComponentMessage message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&',
+                    "&cThere are no reports."));
+
+            p.spigot().sendMessage(message.getComponent());
+            return;
+        }
+        List<List<Report>> pages = chopped(reportsList, 5);
+        List<Report> page = pages.get(pageIndex);
+        for(Report r : page)
+        {
+            ChatComponentMessage message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&', "&7Report &b#&c" + r.getReportId() +" &7- By &c" + r.getReporter() + " &7 - Reported: &c" + r.getReported() + " &7- Server: &c" + r.getServer()));
+
+            message.addHover(ChatColor.translateAlternateColorCodes('&', "&6" + r.getReportContent()));
+            message.addClick(ClickEvent.Action.SUGGEST_COMMAND, "/closereport " + r.getReportId() + " Your Message here");
+            p.spigot().sendMessage(message.getComponent());
+        }
+
+        try {
+            pages.get(pageNumber);
+            ChatComponentMessage message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&',
+                    "&bTo view the next page, use /reports &c" +(pageNumber + 1)));
+
+            p.spigot().sendMessage(message.getComponent());
+
+        }catch(Exception ex){}
+    }
+
+    @Override
+    public void listReports(IFPlayer p, int page) {
+        listReports((IFPlayer) Universal.getMethods().convertFPlayerToPlayer(p), page);
+    }
+
+    @Override
+    public boolean getBooleanFromConfig(String path) {
+        return getConfig().getBoolean(path);
+    }
+
+    @Override
+    public int getIntFromConfig(String path) {
+        return getConfig().getInt(path);
+    }
+
+
 }
 

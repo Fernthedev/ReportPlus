@@ -1,9 +1,11 @@
 package me.xbones.reportplus.core.commands;
 
 import me.xbones.reportplus.core.Core;
-import net.dv8tion.jda.core.events.Event;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.EventListener;
+import net.dv8tion.jda.api.events.GenericEvent;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.EventListener;
+
+import javax.annotation.Nonnull;
 
 public class Command implements EventListener {
 
@@ -16,7 +18,7 @@ public class Command implements EventListener {
     }
 
     @Override
-    public void onEvent(Event event) {
+    public void onEvent(@Nonnull GenericEvent event) {
         if(event instanceof MessageReceivedEvent){
             MessageReceivedEvent e = (MessageReceivedEvent)event;
 
