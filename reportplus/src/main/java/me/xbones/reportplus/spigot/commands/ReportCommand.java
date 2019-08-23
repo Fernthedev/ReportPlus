@@ -1,9 +1,10 @@
 package me.xbones.reportplus.spigot.commands;
 
 
+import me.xbones.reportplus.core.gson.LangConfig;
 import me.xbones.reportplus.spigot.ReportPlus;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,6 +22,7 @@ public class ReportCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command name, String lable, String[] args) {
+		LangConfig lang = main.getLangConfig().getGsonConfigData();
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
 			if (main.getConfig().getBoolean("Enabled-Modules.Reporting")) {
@@ -33,7 +35,7 @@ public class ReportCommand implements CommandExecutor {
 						long secondsLeft = ((cooldowns.get(sender.getName())/1000)+cooldownTime) - (System.currentTimeMillis()/1000);
 						if(secondsLeft>0) {
 							// Still cooling down
-							sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cYou cannot use this command for another " + secondsLeft + " seconds."));
+							sender.sendMessage(translate( main.getPrefix() + lang.getCoolDownText().replace("%secondsLeft%", secondsLeft + "")));
 							return true;
 						}
 					}
@@ -44,7 +46,7 @@ public class ReportCommand implements CommandExecutor {
 
 					if(args.length == 0) {
 						if(!main.getConfig().getBoolean("Allow-Report-No-Name")){
-							p.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("Enter-Name")));
+							p.sendMessage(translate( main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("Enter-Name")));
 							return true;
 						}
 					main.showGUI(p);
@@ -53,11 +55,11 @@ public class ReportCommand implements CommandExecutor {
 
 						Player target = Bukkit.getPlayer(args[0]);
 	                    if(target == null)
-	                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cThat player is not online!"));
+	                        p.sendMessage(translate( main.getPrefix() + " " + lang.getPlayerCannotBeFound()));
 	                    else {
 	                    	if(target == p)
 							{
-								p.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("Cant-Report-Self")));
+								p.sendMessage(translate( main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("Cant-Report-Self")));
 								return true;
 							}
 	                        main.getReporting().put(p,target);
@@ -69,11 +71,16 @@ public class ReportCommand implements CommandExecutor {
 					main.NoPerm(p);	
 				}
 			} else {
-				p.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cReporting is disabled!"));
+				p.sendMessage(translate( main.getPrefix() + " " + lang.getReportingIsDisabled()));
 			}
 		} else {
 			sender.sendMessage("Can only be run in game!");
 		}
 		return true;
 	}
+
+	private String translate(String s) {
+		return ChatColor.translateAlternateColorCodes('&', s);
+	}
+
 }

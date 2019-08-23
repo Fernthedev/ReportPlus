@@ -28,7 +28,7 @@ public class InventoryManager {
     }
 
     public void initializeReports(Player p) {
-        ReportInventory inventory = new ReportInventory();
+        ReportInventory inventory = new ReportInventory(main);
         inventory.initializeReports(p);
         myInventory = inventory.getInventory();
     }
@@ -57,6 +57,7 @@ public class InventoryManager {
     public void setCustomCloseReportInventory(Inventory customCloseReportInventory) {
         this.customCloseReportInventory = customCloseReportInventory;
     }
+
 
     public Map<Report, CloseReportInventoy> getCloseReportInventories() {
         return closeReportInventory;

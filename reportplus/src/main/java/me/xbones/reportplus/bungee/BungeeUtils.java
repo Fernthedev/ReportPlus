@@ -2,6 +2,8 @@ package me.xbones.reportplus.bungee;
 
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
+import me.xbones.reportplus.core.gson.GsonConfig;
+import me.xbones.reportplus.core.gson.LangConfig;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -14,6 +16,7 @@ import java.util.List;
 public class BungeeUtils {
 
     private ReportPlus main;
+    private GsonConfig<LangConfig> langConfig;
 
     public BungeeUtils(ReportPlus main){
         this.main=main;
@@ -72,6 +75,12 @@ public class BungeeUtils {
         Configuration config = messagesConfig;
         if(!config.contains(key))
             config.set(key, value);
+
+    }
+
+    public void createLangConfig() {
+        File f = new File(main.getProxy().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
+        langConfig = new GsonConfig<>(new LangConfig(), f);
 
     }
 
@@ -179,4 +188,7 @@ else{
         return inputString.replaceAll("&.", "");
     }
 
+    public GsonConfig<LangConfig> getLangConfig() {
+        return langConfig;
+    }
 }

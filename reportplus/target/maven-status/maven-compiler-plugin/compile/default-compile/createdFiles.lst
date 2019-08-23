@@ -9,6 +9,7 @@ me\xbones\reportplus\spigot\Bstats\Metrics$SimplePie.class
 me\xbones\reportplus\spigot\inventories\CloseReportInventoy.class
 me\xbones\reportplus\spigot\config\SpigotConfig.class
 me\xbones\reportplus\core\commands\HelpCommand.class
+me\xbones\reportplus\core\gson\LangConfig$ReportDesc.class
 me\xbones\reportplus\bungee\commands\CmdCMD.class
 me\xbones\reportplus\bungee\Bstats\Metrics$CustomChart.class
 me\xbones\reportplus\bungee\Bstats\Metrics$DrilldownPie.class
@@ -37,6 +38,7 @@ me\xbones\reportplus\core\universalcommands\ListReportsCMD.class
 me\xbones\reportplus\spigot\listeners\PlayerLeaveListener.class
 me\xbones\reportplus\core\IConfig.class
 me\xbones\reportplus\spigot\commands\ReportCommand.class
+me\xbones\reportplus\core\gson\GsonConfigData.class
 me\xbones\reportplus\spigot\Bstats\Metrics$1$1.class
 me\xbones\reportplus\bungee\config\BungeeConfig.class
 me\xbones\reportplus\spigot\commands\ReportPlusCommand.class
@@ -53,7 +55,6 @@ me\xbones\reportplus\spigot\ReportPlus$1.class
 me\xbones\reportplus\bungee\listeners\PlayerJoinListener.class
 me\xbones\reportplus\core\exception\ExceptionType.class
 me\xbones\reportplus\spigot\events\SpigotPlayerReportEvent.class
-me\xbones\reportplus\bungee\ReportPlus$2.class
 me\xbones\reportplus\core\commands\CloseReportWithMessage.class
 me\xbones\reportplus\core\commands\CustomCMD.class
 me\xbones\reportplus\bungee\commands\ReportPlusCommand.class
@@ -65,6 +66,7 @@ me\xbones\reportplus\core\chatcomponentapi\UniversalChatComponentMessage.class
 me\xbones\reportplus\core\MySQL\MySQL.class
 me\xbones\reportplus\bungee\commands\ReportCommand.class
 me\xbones\reportplus\core\exception\ReportPlusException.class
+me\xbones\reportplus\core\gson\LangConfig.class
 me\xbones\reportplus\bungee\commands\TXTCmd.class
 me\xbones\reportplus\core\universalcommands\TXTCmd.class
 me\xbones\reportplus\bungee\listeners\PlayerChatListener.class
@@ -83,6 +85,7 @@ me\xbones\reportplus\bungee\listeners\PlayerLeaveListener.class
 me\xbones\reportplus\core\universalcommands\ReportCommand.class
 me\xbones\reportplus\core\commands\ListAnnouncementsCommand.class
 me\xbones\reportplus\core\eventlisteners\ReadyEventListener.class
+me\xbones\reportplus\core\gson\GsonConfig.class
 me\xbones\reportplus\bungee\Bstats\Metrics$AdvancedBarChart.class
 me\xbones\reportplus\spigot\listeners\InventoryClickListener.class
 me\xbones\reportplus\spigot\Bstats\Metrics$CustomChart.class

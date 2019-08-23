@@ -28,9 +28,12 @@ public class ListReportsCMD extends Command {
 				}
 			}
 		} else {
-			sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&',
+			sender.sendMessage(new TextComponent(translate(
 					main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("No-Permission"))));
 		}
 	}
 
+	private String translate(String s) {
+		return ChatColor.translateAlternateColorCodes('&', s);
+	}
 }

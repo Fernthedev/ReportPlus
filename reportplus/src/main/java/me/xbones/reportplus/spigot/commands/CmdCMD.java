@@ -1,8 +1,9 @@
 package me.xbones.reportplus.spigot.commands;
 
 
+import me.xbones.reportplus.core.gson.LangConfig;
 import me.xbones.reportplus.spigot.ReportPlus;
-import org.bukkit.ChatColor;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,9 +17,10 @@ public class CmdCMD implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command name, String lable, String[] args) {
+        LangConfig lang = main.getLangConfig().getGsonConfigData();
         if (sender.hasPermission("reportplus.addcmdcmd")) {
             if (args.length < 2) {
-                sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cPlease enter a command name and the command to be executed!"));
+                sender.sendMessage(translate( main.getPrefix() + " " + lang.getPleaseEnterCommandText()));
 
             } else {
                 String cmd = args[0];
@@ -31,9 +33,14 @@ public class CmdCMD implements CommandExecutor {
                 main.AddCMDCMD(sender, cmd, Text);
             }
         } else {
-            sender.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cYou don't have access to that command!"));
+            sender.sendMessage(translate( main.getPrefix() + " " + lang.getNoPerm()));
         }
 
         return true;
     }
+
+    private String translate(String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
+    }
+
 }

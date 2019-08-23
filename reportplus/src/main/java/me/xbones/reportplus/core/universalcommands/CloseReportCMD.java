@@ -8,6 +8,7 @@ import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.core.IReportPlus;
+import me.xbones.reportplus.core.gson.LangConfig;
 
 import java.util.List;
 
@@ -22,10 +23,11 @@ public class CloseReportCMD extends UniversalCommand {
 	@Override
 	public void execute(CommandSender sender, String[] args){
 		if(sender.hasPermission("reportplus.closereport")) {
+			LangConfig lang = main.getLangConfig().getGsonConfigData();
 			if(sender instanceof IFPlayer) {
 				IFPlayer p = (IFPlayer) sender;
 				if(args.length < 2){
-					p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&',
+					p.sendMessage(new TextMessage(translate(
 							main.getPrefix() + " " + main.getStringFromMessages("Not-Enough-Args"))));
 				}else{
 					String reportID = args[0];
@@ -36,17 +38,18 @@ public class CloseReportCMD extends UniversalCommand {
 
 					String Message = sb.toString().trim();
 Report r = perform(main.getReports(), Integer.parseInt(reportID));
+
 					if(r == null){
-						p.sendMessage(new TextMessage(main.getPrefix() + " &cReport could not be found!"));
+						p.sendMessage(new TextMessage(translate(main.getPrefix() + " " + lang.getReportCouldNotBeFound())));
 						return;
 					}
 
 					main.closeReport(p.getName(), r,false, Message);
-					p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&',main.getPrefix() +" " + main.getStringFromMessages("Success-Close-Report").replace("%id%",reportID))));
+					p.sendMessage(new TextMessage(translate(main.getPrefix() +" " + main.getStringFromMessages("Success-Close-Report").replace("%id%",reportID))));
 				}
 			}
 		} else {
-			sender.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&',
+			sender.sendMessage(new TextMessage(translate(
 					main.getPrefix() + " " + main.getStringFromMessages("No-Permission"))));
 		}
 	}
@@ -54,4 +57,7 @@ Report r = perform(main.getReports(), Integer.parseInt(reportID));
 		return list.stream().filter(o -> o.getReportId() == name).findAny().get();
 	}
 
+	private String translate(String s) {
+		return ChatColor.translateAlternateColorCodes('&', s);
+	}
 }

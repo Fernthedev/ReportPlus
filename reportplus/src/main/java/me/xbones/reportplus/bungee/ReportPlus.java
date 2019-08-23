@@ -20,6 +20,8 @@ import me.xbones.reportplus.core.ReportPlusAPIHandler;
 import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
+import me.xbones.reportplus.core.gson.GsonConfig;
+import me.xbones.reportplus.core.gson.LangConfig;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
@@ -115,6 +117,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
             console.sendMessage(new TextComponent(Utils.CCT("&c ERROR INITIALIZING MYSQL  ")));
             ex.printStackTrace();
         }
+        utils.createLangConfig();
         utils.createMessagesYML();
 
         if(this.getConfig().getBoolean("Enabled-Modules.Console")) {
@@ -127,12 +130,10 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
             startAnnouncing();
         initializeCommands();
         initializeEvents();
-        getProxy().getScheduler().schedule(this, new Runnable(){
-            public void run(){
-                if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-                    main.core.getJda().getTextChannelById(main.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Start-Message")).queue();
+        getProxy().getScheduler().schedule(this, () -> {
+            if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
+                main.core.getJda().getTextChannelById(main.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Start-Message")).queue();
 
-            }
         }, 1, TimeUnit.SECONDS);
         console.sendMessage(new TextComponent(Utils.CCT("&c   &7PLUGIN LOADED.   ")));
         console.sendMessage(new TextComponent(Utils.CCT("&c--- &6REPORTPLUS BUNGEE &c---")));
@@ -349,6 +350,11 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     @Override
+    public GsonConfig<LangConfig> getLangConfig() {
+        return utils.getLangConfig();
+    }
+
+    @Override
     public void setGame(JDA jda) {
         jda.getPresence().setActivity(Activity.playing(((String)ConfigurationManager.get("Game")).replace("%players%",  String.valueOf(getProxy().getOnlineCount()))));
 
@@ -382,7 +388,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         for (ProxiedPlayer p : getProxy().getPlayers()) {
             if (p.hasPermission("reportplus.receive")) {
                 for (String s : main.getUtils().getMessagesConfig().getStringList("Minecraft-Report-Format")) {
-                    p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', s.replace("%reporter%", player.getName()).replace("%reported%", reported).replace("%reportcontent%", message).replace("%server", getServerName(player)))));
+                    p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', s.replace("%reporter%", player.getName()).replace("%reported%", reported).replace("%reportcontent%", message).replace("%server%", getServerName(player)))));
 
                 }
             }

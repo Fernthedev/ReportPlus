@@ -2,6 +2,7 @@ package me.xbones.reportplus.bungee.commands;
 
 
 import me.xbones.reportplus.bungee.ReportPlus;
+import me.xbones.reportplus.core.gson.LangConfig;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -19,9 +20,10 @@ public class CmdCMD extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] args){
+        LangConfig lang = main.getLangConfig().getGsonConfigData();
         if (sender.hasPermission("reportplus.addcmdcmd")) {
             if (args.length < 2) {
-                sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cPlease enter a command name and the command to be executed!")));
+                sender.sendMessage(new TextComponent(translate( main.getPrefix() + " " + lang.getPleaseEnterCommandText())));
 
             } else {
                 String cmd = args[0];
@@ -34,8 +36,11 @@ public class CmdCMD extends Command {
                 main.AddCMDCMD(sender, cmd, Text);
             }
         } else {
-            sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cYou don't have access to that command!")));
+            sender.sendMessage(new TextComponent(translate( main.getPrefix() + " " + lang.getNoPerm())));
         }
     }
 
+    private String translate(String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
+    }
 }

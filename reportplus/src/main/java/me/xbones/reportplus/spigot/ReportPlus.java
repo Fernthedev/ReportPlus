@@ -14,6 +14,8 @@ import me.xbones.reportplus.core.ReportPlusAPIHandler;
 import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
+import me.xbones.reportplus.core.gson.GsonConfig;
+import me.xbones.reportplus.core.gson.LangConfig;
 import me.xbones.reportplus.spigot.Bstats.Metrics;
 import me.xbones.reportplus.spigot.chatcomponentapi.ChatComponentMessage;
 import me.xbones.reportplus.spigot.commands.*;
@@ -105,6 +107,8 @@ public class ReportPlus extends FernSpigotAPI implements IReportPlus {
             }
             else
                 utils.createReportsYML();
+
+            utils.createLangJSON();
 
             utils.createMessagesYML();
 
@@ -286,6 +290,11 @@ ex.printStackTrace();
 
     public void setReportsList(List<Report> reports){
         reportsList=reports;
+    }
+
+    @Override
+    public GsonConfig<LangConfig> getLangConfig() {
+        return utils.getLanguageConfig();
     }
 
     public InventoryManager getInventoryManager() {

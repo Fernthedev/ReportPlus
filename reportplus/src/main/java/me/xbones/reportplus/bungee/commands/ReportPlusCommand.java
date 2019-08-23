@@ -18,24 +18,24 @@ public class ReportPlusCommand extends net.md_5.bungee.api.plugin.Command {
     @Override
     public void execute(CommandSender sender, String[] args){
         if (args.length == 0) {
-            ChatComponentMessage message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cReportPlus &6by &aBonesJones & Fernthedev"));
-            message.addHover(ChatColor.translateAlternateColorCodes('&', "&cVersion: &6" + main.getDescription().getVersion()));
+            ChatComponentMessage message = new ChatComponentMessage(translate( main.getPrefix() + " &cReportPlus &6by &aBonesJones & Fernthedev"));
+            message.addHover(translate( "&cVersion: &6" + main.getDescription().getVersion()));
             sender.sendMessage(message.getComponent());
 
-            message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cCommands:"));
-            message.addHover(ChatColor.translateAlternateColorCodes('&', "&7Here are the commands with description"));
+            message = new ChatComponentMessage(translate( main.getPrefix() + " &cCommands:"));
+            message.addHover(translate( "&7Here are the commands with description"));
             sender.sendMessage(message.getComponent());
 
-            message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &c/reload &7(Hover for information)"));
-            message.addHover(ChatColor.translateAlternateColorCodes('&', "&7Reload the plugin & reports"));
+            message = new ChatComponentMessage(translate( main.getPrefix() + " &c/reload &7(Hover for information)"));
+            message.addHover(translate( "&7Reload the plugin & reports"));
             sender.sendMessage(message.getComponent());
 
-            message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &c/closereport &b<id> <Message> &7(Hover for information)"));
-            message.addHover(ChatColor.translateAlternateColorCodes('&', "&7Close the report with the specified ID and send a message (/closereport {id} {msg}"));
+            message = new ChatComponentMessage(translate( main.getPrefix() + " &c/closereport &b<id> <Message> &7(Hover for information)"));
+            message.addHover(translate( "&7Close the report with the specified ID and send a message (/closereport {id} {msg}"));
             sender.sendMessage(message.getComponent());
 
-            message = new ChatComponentMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &c/report &b<player> <Reason> &7(Hover for information)"));
-            message.addHover(ChatColor.translateAlternateColorCodes('&', "&7Reports the specified player with a reason (/report {name} {reason}"));
+            message = new ChatComponentMessage(translate( main.getPrefix() + " &c/report &b<player> <Reason> &7(Hover for information)"));
+            message.addHover(translate( "&7Reports the specified player with a reason (/report {name} {reason}"));
             sender.sendMessage(message.getComponent());
 
         } else {
@@ -44,13 +44,17 @@ public class ReportPlusCommand extends net.md_5.bungee.api.plugin.Command {
                     main.reloadPluginConfig();
                     if (main.getConfig().getBoolean("Enabled-Modules.MySQL.Enabled"))
                         main.setReportsList(main.getSqlManager().getReports());
-                    sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aPlugin reloaded!")));
+                    sender.sendMessage(new TextComponent(translate( main.getPrefix() + " &aPlugin reloaded!")));
                 } else {
-                    sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&',
+                    sender.sendMessage(new TextComponent(translate(
                             main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("No-Permission"))));
 
                 }
             }
         }
+    }
+
+    private String translate(String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
     }
 }

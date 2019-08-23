@@ -20,7 +20,7 @@ public class TXTCmd extends Command {
 	public void execute(CommandSender sender, String[] args) {
     	if(sender.hasPermission("reportplus.addtxtcmd")) {
     		if(args.length < 2) {
-    			sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cPlease enter a command name and text!")));
+    			sender.sendMessage(new TextComponent(translate( main.getPrefix() + " &cPlease enter a command name and text!")));
     			
     		} else {
     			String cmd = args[0];
@@ -33,7 +33,11 @@ public class TXTCmd extends Command {
 				main.AddTextCMD(sender, cmd, Text);
     		}
     	} else {
-    		sender.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cYou don't have access to that command!")));
+    		sender.sendMessage(new TextComponent(translate( main.getPrefix() + " &cYou don't have access to that command!")));
     	}
     }
+
+	private String translate(String s) {
+		return ChatColor.translateAlternateColorCodes('&', s);
+	}
 }

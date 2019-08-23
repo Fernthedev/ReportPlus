@@ -8,6 +8,7 @@ C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\re
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\AddAnnouncementCommand.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ConfigInventory.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\ReportPlus.java
+C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\LangConfig.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\ListAnnouncementsCommand.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerReportListener.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\ReportPlus.java
@@ -51,8 +52,10 @@ C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\re
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\MySQL\MySQL.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\Utils.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\chatcomponentapi\UniversalChatComponentMessage.java
+C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\GsonConfigData.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\chatcomponentapi\ChatComponentMessage.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CloseReportWithMessage.java
+C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\GsonConfig.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\LogAppender.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ReportCommand.java
 C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\eventlisteners\MessageCreatedListener.java

@@ -2,6 +2,9 @@ package me.xbones.reportplus.spigot;
 
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
+import me.xbones.reportplus.core.Utils;
+import me.xbones.reportplus.core.gson.GsonConfig;
+import me.xbones.reportplus.core.gson.LangConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -11,10 +14,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpigotUtils {
+public class SpigotUtils extends Utils {
     private ReportPlus main;
     private FileConfiguration messagesConfig;
     private FileConfiguration reportsConfig;
+    private GsonConfig<LangConfig> langConfig;
 
     public SpigotUtils(ReportPlus main){
         this.main=main;
@@ -65,6 +69,12 @@ public class SpigotUtils {
 
     }
 
+    public void createLangJSON() {
+        File f = new File(Bukkit.getServer().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
+        langConfig = new GsonConfig<>(new LangConfig(), f);
+
+    }
+
     public void createMessagesYML() {
         File f = new File(Bukkit.getServer().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "messages.yml");
         messagesConfig = YamlConfiguration.loadConfiguration(f);
@@ -108,6 +118,21 @@ public class SpigotUtils {
             minecraftReport.add("&8&m          I         ");
 
             SetIfNotExists("Minecraft-Report-Format", minecraftReport);
+
+            minecraftReport = new ArrayList<>();
+            minecraftReport.add("&8&m          I         ");
+            minecraftReport.add(" ");
+            minecraftReport.add("          &6&lReport &c&lClosed!         ");
+            minecraftReport.add(" ");
+            minecraftReport.add("          &6Closer: &c%player%          ");
+            minecraftReport.add(" ");
+            minecraftReport.add("          &6Report ID: &c%id%");
+            minecraftReport.add(" ");
+            minecraftReport.add("          &6Report reason: &c%reason%");
+            minecraftReport.add(" ");
+            minecraftReport.add("&8&m          I         ");
+
+            SetIfNotExists("Minecraft-Report-Receive-Format", minecraftReport);
 
             SetIfNotExists("No-Permission", "&cYou don't have access to that command!");
             SetIfNotExists("Chat-Sync-Banned-Word", "&c&lDo not ping everyone!");
@@ -160,4 +185,8 @@ public class SpigotUtils {
         return inputString.replaceAll("&.", "");
     }
 
+    @Override
+    public GsonConfig<LangConfig> getLanguageConfig() {
+        return langConfig;
+    }
 }

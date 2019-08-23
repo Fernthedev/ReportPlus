@@ -2,6 +2,7 @@ package me.xbones.reportplus.spigot.inventories;
 
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
+import me.xbones.reportplus.core.gson.LangConfig;
 import me.xbones.reportplus.spigot.ReportPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,22 +22,24 @@ public class ListReportsInventory {
     public ListReportsInventory(ReportPlus main) { this.main = main; }
 
     public void InitializeList() {
-        reportsList = Bukkit.createInventory(null, 54, ChatColor.translateAlternateColorCodes('&', "&cRep&7ort&4s"));
+        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        reportsList = Bukkit.createInventory(null, 54, translate( lang.getGuiGeneralTitle()));
         int slot =0;
         for(Report p : main.getReportsList()) {
             if(slot == 54) return;
             List<String>lore=new ArrayList<>();
-            lore.add(ChatColor.GREEN + "Reporter: " + p.getReporter());
-            lore.add(ChatColor.RED +"Report id: " + p.getReportId());
-            lore.add(ChatColor.AQUA +"Report: " + p.getReportContent());
+            LangConfig.ReportDesc reportDesc = lang.getReportDescription();
+            lore.add(translate(reportDesc.getReporter().replace("%reporter%", p.getReporter())));
+            lore.add(translate(reportDesc.getReporter().replace("%id%", p.getReportId() + "")));
+            lore.add(translate(reportDesc.getReportContent().replace("%content%", p.getReportContent())));
             if(p.getType() == ReportType.DISCORD)
-                lore.add(ChatColor.GRAY + "Report Type: Discord");
+                lore.add(translate(reportDesc.getReportTypeDiscord()));
             else if(p.getType() == ReportType.MINECRAFT)
-                lore.add(ChatColor.GRAY + "Report Type: Minecraft");
+                lore.add(translate(reportDesc.getReportTypeMinecraft()));
             else if(p.getType() == ReportType.BOTH)
-                lore.add(ChatColor.GRAY + "Report Type: Discord and Minecaft");
-            lore.add(ChatColor.BLUE +"Date: " + p.getDate());
-            lore.add(ChatColor.GOLD + "Click to show details.");
+                lore.add(translate(reportDesc.getReportTypeBoth()));
+            lore.add(translate(reportDesc.getDate().replace("%date%", p.getDate() + "")));
+            lore.add(translate(lang.getClickToShowDetails()));
             createDisplay(Material.WRITABLE_BOOK, reportsList, slot, ChatColor.GREEN + p.getReporter(), lore);
             slot++;
         }
@@ -79,5 +82,9 @@ public class ListReportsInventory {
 
         inv.setItem(Slot, item);
 
+    }
+
+    private String translate(String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
     }
 }

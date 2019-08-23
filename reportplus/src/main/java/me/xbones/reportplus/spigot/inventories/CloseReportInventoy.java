@@ -2,9 +2,10 @@ package me.xbones.reportplus.spigot.inventories;
 
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
+import me.xbones.reportplus.core.gson.LangConfig;
 import me.xbones.reportplus.spigot.ReportPlus;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -23,44 +24,50 @@ public class CloseReportInventoy {
     public CloseReportInventoy(ReportPlus main) { this.main = main; }
 
     public void Initialize(Report report) {
-this.report=report;
-this.name = ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId());
+        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        this.report=report;
+        this.name = translate( lang.getReportTextClose().replace("%id%", report.getReportId() + ""));
         reportInv = Bukkit.createInventory(null, 54, name);
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 1, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 2, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 3, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 4, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 5, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 6, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 7, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 9, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 17, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_WOOL, reportInv, 20, ChatColor.translateAlternateColorCodes('&', "&cClose Report & Send message"), ChatColor.translateAlternateColorCodes('&',"&7Close permanently and send a message to owner."), (short)14);
-        createDisplay(Material.LEGACY_WOOL, reportInv, 24, ChatColor.translateAlternateColorCodes('&', "&aCancel"), ChatColor.translateAlternateColorCodes('&',"&7Click to cancel and go back to the previous menu."), (short)5);
-        createDisplay(Material.BARRIER, reportInv, 22, ChatColor.translateAlternateColorCodes('&', "&cClose Report"), ChatColor.translateAlternateColorCodes('&',"&7Close permanently without sending a message."));
-        List<String>lore=new ArrayList<>();
-        lore.add(ChatColor.GREEN + "Reporter: " + report.getReporter());
-        lore.add(ChatColor.RED +"Report id: " + report.getReportId());
-        lore.add(ChatColor.AQUA +"Report: " + report.getReportContent());
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 1, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 2, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 3, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 4, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 5, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 6, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 7, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 9, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 17, lang.getReportTextClose().replace("%id%", report.getReportId() + ""), " ");
+        createDisplay(Material.LEGACY_WOOL, reportInv, 20, translate(lang.getReportMessageOnCloseAndMessage()), translate(lang.getReportMessageOnCloseAndMessageDesc()), (short)14);
+        createDisplay(Material.LEGACY_WOOL, reportInv, 24, translate( lang.getReportCancel()), translate(lang.getReportCancelDesc()), (short)5);
+        createDisplay(Material.BARRIER, reportInv, 22, translate( lang.getReportMessageOnCloseNoMessage()), translate(lang.getReportMessageOnCloseNoMessageDesc()));
+        List<String> lore = new ArrayList<>();
+        LangConfig.ReportDesc reportDesc = lang.getReportDescription();
+        lore.add(translate(reportDesc.getReporter().replace("%reporter%", report.getReporter())));
+        lore.add(translate(reportDesc.getReporter().replace("%id%", report.getReportId() + "")));
+        lore.add(translate(reportDesc.getReportContent().replace("%content%", report.getReportContent())));
+
+
+
         if(report.getType() == ReportType.DISCORD)
-            lore.add(ChatColor.GRAY + "Report Type: Discord");
+            lore.add(translate(reportDesc.getReportTypeDiscord()));
         else if(report.getType() == ReportType.MINECRAFT)
-            lore.add(ChatColor.GRAY + "Report Type: Minecraft");
+            lore.add(translate(reportDesc.getReportTypeMinecraft()));
         else if(report.getType() == ReportType.BOTH)
-            lore.add(ChatColor.GRAY + "Report Type: Discord and Minecaft");
-        lore.add(ChatColor.BLUE +"Date: " + report.getDate());
-        createDisplay(Material.BOOK, reportInv, 31, ChatColor.translateAlternateColorCodes('&', "&7Report &b#" + report.getReportId()), lore);
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 36, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 44, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 46, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 47, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 48, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 49, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 50, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 51, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
-        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 52, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
+            lore.add(translate(reportDesc.getReportTypeBoth()));
+
+        lore.add(translate(reportDesc.getDate().replace("%date%", report.getDate() + "")));
+        createDisplay(Material.BOOK, reportInv, 31, translate(lang.getReportTextClose().replace("%id%", report.getReportId() + "")), lore);
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 36, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 44, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 46, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 47, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 48, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 49, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 50, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 51, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
+        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 52, translate( lang.getReportTextClose().replace("%id%", report.getReportId() + "")), " ");
 //
-//        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 54, ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.getReportId()), " ");
+//        createDisplay(Material.LEGACY_STAINED_GLASS_PANE, reportInv, 54, translate( "&cReport &b#" + report.getReportId()), " ");
 
     }
 
@@ -110,5 +117,9 @@ this.name = ChatColor.translateAlternateColorCodes('&', "&cReport &b#" + report.
 
         inv.setItem(Slot, item);
 
+    }
+
+    private String translate(String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
     }
 }

@@ -150,18 +150,24 @@ public class InventoryClickListener implements Listener {
         for (Player p : main.getServer().getOnlinePlayers()) {
             if (p.hasPermission("reportplus.receive")) {
                 if (p.hasPermission("reportplus.receive") || p.isOp()) {
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8&m          I         "));
-                    p.sendMessage("");
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "          &6&lReport &c&lClosed!         "));
-                    p.sendMessage("");
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "          &6Closer: &c" + player.getName() + "          "));
-                    p.sendMessage("");
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "          &6Report ID: &c" + r.getReportId() + "          "));
-                    p.sendMessage("");
-                    p.sendMessage(
-                            ChatColor.translateAlternateColorCodes('&', "          &6Report reason: &c" + r.getReportContent() + "          "));
-                    p.sendMessage("");
-                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8&m          I         "));
+                    for (String s : main.getUtils().getMessagesConfig().getStringList("Minecraft-Report-Receive-Format")) {
+                        String translatedText = s.replace("%closer%", player.getName());
+                        translatedText = translatedText.replace("%id%", r.getReportId() + ""); // {+ "" }to cast int to String
+                        translatedText = translatedText.replace("%reason%", r.getReportContent());
+                        p.sendMessage(ChatColor.translateAlternateColorCodes('&', translatedText));
+                    }
+//                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8&m          I         "));
+//                    p.sendMessage("");
+//                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "          &6&lReport &c&lClosed!         "));
+//                    p.sendMessage("");
+//                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "          &6Closer: &c" + player.getName() + "          "));
+//                    p.sendMessage("");
+//                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "          &6Report ID: &c" + r.getReportId() + "          "));
+//                    p.sendMessage("");
+//                    p.sendMessage(
+//                            ChatColor.translateAlternateColorCodes('&', "          &6Report reason: &c" + r.getReportContent() + "          "));
+//                    p.sendMessage("");
+//                    p.sendMessage(ChatColor.translateAlternateColorCodes('&', "&8&m          I         "));
                 }
             }
         }

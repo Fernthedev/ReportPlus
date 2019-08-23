@@ -8,6 +8,7 @@ import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.RPlayer;
+import me.xbones.reportplus.core.gson.LangConfig;
 
 import java.util.HashMap;
 
@@ -22,6 +23,7 @@ public class ReportCommand extends UniversalCommand {
 
     @Override
     public void execute(CommandSender commandSender, String[] args) {
+        LangConfig lang = main.getLangConfig().getGsonConfigData();
         if (commandSender instanceof IFPlayer) {
             IFPlayer p = (IFPlayer) commandSender;
             if (main.getBooleanFromConfig("Enabled-Modules.Reporting")) {
@@ -33,7 +35,7 @@ public class ReportCommand extends UniversalCommand {
                         long secondsLeft = ((cooldowns.get(p.getName())/1000)+cooldownTime) - (System.currentTimeMillis()/1000);
                         if(secondsLeft>0) {
                             // Still cooling down
-                            p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cYou cannot use this command for another " + secondsLeft + " seconds.")));
+                            p.sendMessage(new TextMessage(translate( main.getPrefix() + lang.getCoolDownText().replace("%secondsLeft%", secondsLeft + ""))));
                             return;
                         }
                     }
@@ -43,7 +45,7 @@ public class ReportCommand extends UniversalCommand {
                     // COOLDOWN END //
 
                     if(args.length < 2) {
-                            p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " " + main.getStringFromMessages("Not-Enough-Args"))));
+                            p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + main.getStringFromMessages("Not-Enough-Args"))));
 
                     } else {
 
@@ -56,11 +58,11 @@ public class ReportCommand extends UniversalCommand {
                         String Message = sb.toString().trim();
 
                         if(target == null)
-                            p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cThat player is not online!")));
+                            p.sendMessage(new TextMessage(translate( main.getPrefix() + lang.getPlayerCannotBeFound())));
                         else {
                             if(target == p && !p.hasPermission("reportplus.reportSelf"))
                             {
-                                p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " " + main.getStringFromMessages("Cant-Report-Self"))));
+                                p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + main.getStringFromMessages("Cant-Report-Self"))));
                                 return;
                             }
                             main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(),p.getUuid()), target.getName(), Message);
@@ -71,10 +73,15 @@ public class ReportCommand extends UniversalCommand {
                     main.NoPerm(p);
                 }
             } else {
-                p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cReporting is disabled!")));
+                p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + lang.getReportingIsDisabled())));
             }
         } else {
-            commandSender.sendMessage(new TextMessage("Can only be run in game!"));
+            commandSender.sendMessage(new TextMessage(translate(lang.getCanOnlyRunIngame())));
         }
     }
+
+    private String translate(String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
+    }
+
 }

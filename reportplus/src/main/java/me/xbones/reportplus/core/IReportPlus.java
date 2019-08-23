@@ -5,6 +5,8 @@ import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.MySQL.MySQLManager;
+import me.xbones.reportplus.core.gson.GsonConfig;
+import me.xbones.reportplus.core.gson.LangConfig;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 
@@ -84,4 +86,6 @@ public interface IReportPlus {
     public String getVersion();
 
     void setReportsList(List<Report> reports);
+
+    GsonConfig<LangConfig> getLangConfig();
 }
