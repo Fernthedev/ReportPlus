@@ -2,10 +2,10 @@ package me.xbones.reportplus.core.universalcommands;
 
 
 import com.github.fernthedev.fernapi.universal.api.CommandSender;
+import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import com.github.fernthedev.fernapi.universal.api.UniversalCommand;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
-import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.core.IReportPlus;
 
 public class ListReportsCMD extends UniversalCommand {
@@ -17,8 +17,8 @@ public class ListReportsCMD extends UniversalCommand {
 	@Override
 	public void execute(CommandSender sender, String[] args){
 		if(sender.hasPermission("reportplus.listreports")) {
-			if(sender instanceof IFPlayer) {
-				IFPlayer p = (IFPlayer) sender;
+			if(sender instanceof IFPlayer<?>) {
+				IFPlayer<?> p = (IFPlayer<?>) sender;
 
 				if(args.length == 0) {
 					main.listReports(p, 1);

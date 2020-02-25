@@ -26,7 +26,7 @@ public class ReportInventory {
     private Inventory myInventory;
 
     public void initializeReports(Player p) {
-        LangConfig lang = reportPlus.getLangConfig().getGsonConfigData();
+        LangConfig lang = reportPlus.getLangConfig().getConfigData();
         glassMaterial = Material.LEGACY_STAINED_GLASS_PANE;
         durability = 15;
         myInventory = Bukkit.createInventory(null, 54, translate( lang.getGuiGeneralTitle()));

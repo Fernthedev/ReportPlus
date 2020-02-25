@@ -17,7 +17,7 @@ public class CmdCMD implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command name, String lable, String[] args) {
-        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        LangConfig lang = main.getLangConfig().getConfigData();
         if (sender.hasPermission("reportplus.addcmdcmd")) {
             if (args.length < 2) {
                 sender.sendMessage(translate( main.getPrefix() + " " + lang.getPleaseEnterCommandText()));

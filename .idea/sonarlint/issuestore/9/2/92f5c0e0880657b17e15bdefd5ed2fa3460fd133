@@ -1,0 +1,20 @@
+
+\squid:S1854»"8Remove this useless assignment to local variable "Cmds".(®·¬’ıÿÿÿÿ8ŞÄØË-
+vsquid:S00117–"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®·¬’ıÿÿÿÿ8ŞÄØË-
+Lsquid:S1604‰"(Make this anonymous inner class a lambda(ä¹»şÿÿÿÿ8ŞÄØË-
+Lsquid:S1604Ù"(Make this anonymous inner class a lambda(¦¤Áãûÿÿÿÿ8ŞÄØË-
+vsquid:S00117˜"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×²Ïæüÿÿÿÿ8ŞÄØË-
+<squid:S2119Û"Save and re-use this "Random".(¼İÅf8ŞÄØË-
+jsquid:S2184÷"FCast one of the operands of this multiplication operation to a "long".(…Ê¿ëüÿÿÿÿ8ŞÄØË-
+vsquid:S00117»"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®·¬’ıÿÿÿÿ8ŞÄØË-
+Lsquid:S1604ò"(Make this anonymous inner class a lambda(à¿õêûÿÿÿÿ8ŞÄØË-
+vsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô­»Ñûÿÿÿÿ8ŞÄØË-
+vsquid:S00117Ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô­»Ñûÿÿÿÿ8ŞÄØË-
+Hsquid:S16594"*Declare "CMDChannelID" on a separate line.(—¨õá8ŞÄØË-
+Gsquid:S16594")Declare "MCChannelID" on a separate line.(—¨õá8ŞÄØË-
+\squid:S1854–"8Remove this useless assignment to local variable "Cmds".(®·¬’ıÿÿÿÿ8ŞÄØË-
+xsquid:S2293Æ"YReplace the type specification in this constructor call with the diamond operator ("<>").(ßã™û8ŞÄØË-
+Nsquid:S1066ı"/Merge this if statement with the enclosing one.(¾ÃóŞ8ŞÄØË-
+\squid:S1155Ò">Use isEmpty() to check whether the collection is empty or not.(¯Ò•F8ŞÄØË-
+Wsquid:S2440Q"4Remove this instantiation of "ConfigurationManager".(¶ñ„—úÿÿÿÿ8Ìˆ“ƒÌ-
+ssquid:S00100³"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚Ì’Çùÿÿÿÿ8Ìˆ“ƒÌ-

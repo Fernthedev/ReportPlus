@@ -1,8 +1,9 @@
 package me.xbones.reportplus.bungee;
 
+import com.github.fernthedev.config.common.Config;
+import com.github.fernthedev.config.gson.GsonConfig;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
-import me.xbones.reportplus.core.gson.GsonConfig;
 import me.xbones.reportplus.core.gson.LangConfig;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -188,7 +189,7 @@ else{
         return inputString.replaceAll("&.", "");
     }
 
-    public GsonConfig<LangConfig> getLangConfig() {
+    public Config<LangConfig> getLangConfig() {
         return langConfig;
     }
 }

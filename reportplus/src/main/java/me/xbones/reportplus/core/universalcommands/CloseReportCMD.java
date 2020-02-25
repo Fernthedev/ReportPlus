@@ -2,10 +2,10 @@ package me.xbones.reportplus.core.universalcommands;
 
 
 import com.github.fernthedev.fernapi.universal.api.CommandSender;
+import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import com.github.fernthedev.fernapi.universal.api.UniversalCommand;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
-import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.gson.LangConfig;
@@ -23,9 +23,9 @@ public class CloseReportCMD extends UniversalCommand {
 	@Override
 	public void execute(CommandSender sender, String[] args){
 		if(sender.hasPermission("reportplus.closereport")) {
-			LangConfig lang = main.getLangConfig().getGsonConfigData();
-			if(sender instanceof IFPlayer) {
-				IFPlayer p = (IFPlayer) sender;
+			LangConfig lang = main.getLangConfig().getConfigData();
+			if(sender instanceof IFPlayer<?>) {
+				IFPlayer<?> p = (IFPlayer<?>) sender;
 				if(args.length < 2){
 					p.sendMessage(new TextMessage(translate(
 							main.getPrefix() + " " + main.getStringFromMessages("Not-Enough-Args"))));

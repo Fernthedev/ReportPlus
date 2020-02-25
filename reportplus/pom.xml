@@ -5,7 +5,7 @@
     <parent>
         <artifactId>ReportPlus</artifactId>
         <groupId>me.xbones.reportplus</groupId>
-        <version>7.5-pre1</version>
+        <version>7.5-pre2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -23,18 +23,18 @@
             <version>1.14.4-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>net.milkbowl.vault</groupId>
-            <artifactId>VaultAPI</artifactId>
-            <version>1.7</version>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.bukkit</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>net.milkbowl.vault</groupId>-->
+<!--            <artifactId>VaultAPI</artifactId>-->
+<!--            <version>1.7</version>-->
+<!--            <scope>provided</scope>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.bukkit</groupId>-->
+<!--                    <artifactId>*</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.ConnorLinfoot</groupId>
             <artifactId>TitleAPI</artifactId>

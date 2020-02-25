@@ -1,7 +1,7 @@
 package me.xbones.reportplus.core;
 
-import com.github.fernthedev.fernapi.universal.UUIDFetcher;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
+import com.github.fernthedev.fernapi.universal.util.UUIDFetcher;
 import lombok.NonNull;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;

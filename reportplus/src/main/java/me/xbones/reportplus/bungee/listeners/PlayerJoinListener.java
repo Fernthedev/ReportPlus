@@ -33,13 +33,11 @@ public class PlayerJoinListener implements Listener {
         if(rp.getConfig().getStringList("User-Notifications." + p.getName()) != null){
             List<String> notifications =rp.getConfig().getStringList("User-Notifications." + p.getName());
 
-           rp.getProxy().getScheduler().schedule(rp, new Runnable(){
-                public void run(){
-                    for(String s: notifications){
-                        p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', s)));
-                    }
-                }
-            }, 2, TimeUnit.SECONDS);
+           rp.getProxy().getScheduler().schedule(rp, () -> {
+               for(String s: notifications){
+                   p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', s)));
+               }
+           }, 2, TimeUnit.SECONDS);
 
             rp.getConfig().set("User-Notifications." + p.getName(), null);
             rp.saveConfig();

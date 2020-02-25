@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="reportplus" />
         <module name="reportplus-api" />
+        <module name="reportplus" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

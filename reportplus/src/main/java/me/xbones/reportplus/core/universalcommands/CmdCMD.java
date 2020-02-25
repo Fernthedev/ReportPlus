@@ -22,7 +22,7 @@ public class CmdCMD extends UniversalCommand {
     @Override
     public void execute(CommandSender sender, String[] args){
         if (sender.hasPermission("reportplus.addcmdcmd")) {
-            LangConfig lang = main.getLangConfig().getGsonConfigData();
+            LangConfig lang = main.getLangConfig().getConfigData();
             if (args.length < 2) {
                 sender.sendMessage(new TextMessage(translate( main.getPrefix() + " " + lang.getPleaseEnterCommandText())));
 

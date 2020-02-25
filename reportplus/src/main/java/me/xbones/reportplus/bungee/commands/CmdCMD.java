@@ -20,7 +20,7 @@ public class CmdCMD extends Command {
 
     @Override
     public void execute(CommandSender sender, String[] args){
-        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        LangConfig lang = main.getLangConfig().getConfigData();
         if (sender.hasPermission("reportplus.addcmdcmd")) {
             if (args.length < 2) {
                 sender.sendMessage(new TextComponent(translate( main.getPrefix() + " " + lang.getPleaseEnterCommandText())));

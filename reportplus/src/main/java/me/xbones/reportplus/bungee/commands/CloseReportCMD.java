@@ -33,7 +33,7 @@ public class CloseReportCMD extends Command {
 						sb.append(args[i]).append(" ");
 					}
 
-					LangConfig lang = main.getLangConfig().getGsonConfigData();
+					LangConfig lang = main.getLangConfig().getConfigData();
 					
 					String Message = sb.toString().trim();
 Report r = perform(main.getReports(), Integer.parseInt(reportID));

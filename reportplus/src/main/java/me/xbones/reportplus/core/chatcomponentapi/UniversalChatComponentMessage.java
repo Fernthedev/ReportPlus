@@ -25,7 +25,7 @@ public class UniversalChatComponentMessage implements IChatComponent {
     }
 
     public void addHover(String hover){
-        component.setHoverData(new HoverData(HoverData.Action.SHOW_TEXT, text));
+        component.setHoverData(new HoverData(HoverData.Action.SHOW_TEXT, new TextMessage(text)));
     }
 
     @Override

@@ -1,0 +1,8 @@
+
+Esquid:S1068".Remove this unused "Bungeecord" private field.(âë—Â
+nsquid:S00117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùüÛýÿÿÿÿÿ
+psquid:S1450"YRemove the "Bungeecord" field and declare it as a local variable in the relevant methods.(âë—Â
+Gsquid:S5411¿"*Use the primitive boolean expression here.(Ìõõ¡úÿÿÿÿ
+Gsquid:S5411’"*Use the primitive boolean expression here.(Ìõõ¡úÿÿÿÿ
+nsquid:S00117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëâŠ—þÿÿÿÿ
+isquid:S00117—"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( ˆÖ<

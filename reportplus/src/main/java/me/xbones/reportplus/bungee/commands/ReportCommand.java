@@ -22,7 +22,7 @@ public class ReportCommand extends Command {
 
     @Override
     public void execute(CommandSender commandSender, String[] args) {
-        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        LangConfig lang = main.getLangConfig().getConfigData();
         if (commandSender instanceof ProxiedPlayer) {
             ProxiedPlayer p = (ProxiedPlayer) commandSender;
             if (main.getConfig().getBoolean("Enabled-Modules.Reporting")) {

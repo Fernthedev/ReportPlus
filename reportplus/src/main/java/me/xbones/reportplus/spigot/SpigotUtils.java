@@ -1,9 +1,10 @@
 package me.xbones.reportplus.spigot;
 
+import com.github.fernthedev.config.common.Config;
+import com.github.fernthedev.config.gson.GsonConfig;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.Utils;
-import me.xbones.reportplus.core.gson.GsonConfig;
 import me.xbones.reportplus.core.gson.LangConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -18,7 +19,7 @@ public class SpigotUtils extends Utils {
     private ReportPlus main;
     private FileConfiguration messagesConfig;
     private FileConfiguration reportsConfig;
-    private GsonConfig<LangConfig> langConfig;
+    private Config<LangConfig> langConfig;
 
     public SpigotUtils(ReportPlus main){
         this.main=main;
@@ -186,7 +187,7 @@ public class SpigotUtils extends Utils {
     }
 
     @Override
-    public GsonConfig<LangConfig> getLanguageConfig() {
+    public Config<LangConfig> getLanguageConfig() {
         return langConfig;
     }
 }

@@ -1,0 +1,25 @@
+
+\squid:S1155ı">Use isEmpty() to check whether the collection is empty or not.(¯Ò•F8â™æŞÊ-
+qsquid:S00117”"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™šÓî8â™æŞÊ-
+Psquid:S1068:"2Remove this unused "sendingMessage" private field.(Ì¦¥‡8â™æŞÊ-
+Msquid:S1172Ô".Remove this unused method parameter "discord".(¿£ëÅ8¦ÛĞØË-
+Lsquid:S10689".Remove this unused "bothChosen" private field.(”€Ó©8â™æŞÊ-
+Ksquid:S1068;"-Remove this unused "reporting" private field.(ñïÎá8â™æŞÊ-
+Hsquid:S16595"*Declare "CMDChannelID" on a separate line.(—¨õá8â™æŞÊ-
+Wsquid:S2440R"4Remove this instantiation of "ConfigurationManager".(Ò·©ªøÿÿÿÿ8¦ÛĞØË-
+Jsquid:S1168ÿ"+Return an empty collection instead of null.(¥¹ï8â™æŞÊ-
+nsquid:S00100ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ»ÿö8¦ÛĞØË-
+squid:S1450C"^Remove the "selectedReports" field and declare it as a local variable in the relevant methods.(ì”»Ìùÿÿÿÿ8â™æŞÊ-
+xsquid:S2293¹"YReplace the type specification in this constructor call with the diamond operator ("<>").(ßã™û8â™æŞÊ-
+Ysquid:S1141©"5Extract this nested try block into a separate method.(Ë’Õéúÿÿÿÿ8â™æŞÊ-
+Vsquid:S10687"3Remove this unused "minecraftChosen" private field.(ùâÛúÿÿÿÿÿ8â™æŞÊ-
+Gsquid:S16595")Declare "MCChannelID" on a separate line.(—¨õá8â™æŞÊ-
+Nsquid:S1066ã"/Merge this if statement with the enclosing one.(‰ò»ÿ8â™æŞÊ-
+Vsquid:S1068C"3Remove this unused "selectedReports" private field.(ì”»Ìùÿÿÿÿ8â™æŞÊ-
+Osquid:S10688"1Remove this unused "discordChosen" private field.(ü¿İ8â™æŞÊ-
+qsquid:S00117§"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢áØñ8â™æŞÊ-
+vsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê™ƒ«ıÿÿÿÿ8â™æŞÊ-
+Fsquid:S1604Ä"(Make this anonymous inner class a lambda(¡–—_8â™æŞÊ-
+qsquid:S00117Â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(êıä¤8â™æŞÊ-
+qsquid:S00117®"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶¢üµ8â™æŞÊ-
+<squid:S2119È"Save and re-use this "Random".(¼İÅf8â™æŞÊ-

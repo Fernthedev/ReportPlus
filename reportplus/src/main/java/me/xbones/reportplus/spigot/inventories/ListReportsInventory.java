@@ -22,7 +22,7 @@ public class ListReportsInventory {
     public ListReportsInventory(ReportPlus main) { this.main = main; }
 
     public void InitializeList() {
-        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        LangConfig lang = main.getLangConfig().getConfigData();
         reportsList = Bukkit.createInventory(null, 54, translate( lang.getGuiGeneralTitle()));
         int slot =0;
         for(Report p : main.getReportsList()) {

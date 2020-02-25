@@ -24,7 +24,7 @@ public class CloseReportInventoy {
     public CloseReportInventoy(ReportPlus main) { this.main = main; }
 
     public void Initialize(Report report) {
-        LangConfig lang = main.getLangConfig().getGsonConfigData();
+        LangConfig lang = main.getLangConfig().getConfigData();
         this.report=report;
         this.name = translate( lang.getReportTextClose().replace("%id%", report.getReportId() + ""));
         reportInv = Bukkit.createInventory(null, 54, name);

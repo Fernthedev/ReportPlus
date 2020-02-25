@@ -1,9 +1,10 @@
 package me.xbones.reportplus.spigot;
 
 import com.connorlinfoot.titleapi.TitleAPI;
+import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.fernapi.server.spigot.FernSpigotAPI;
 import com.github.fernthedev.fernapi.universal.Universal;
-import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
+import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
@@ -14,7 +15,6 @@ import me.xbones.reportplus.core.ReportPlusAPIHandler;
 import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
-import me.xbones.reportplus.core.gson.GsonConfig;
 import me.xbones.reportplus.core.gson.LangConfig;
 import me.xbones.reportplus.spigot.Bstats.Metrics;
 import me.xbones.reportplus.spigot.chatcomponentapi.ChatComponentMessage;
@@ -293,7 +293,7 @@ ex.printStackTrace();
     }
 
     @Override
-    public GsonConfig<LangConfig> getLangConfig() {
+    public Config<LangConfig> getLangConfig() {
         return utils.getLanguageConfig();
     }
 
@@ -538,7 +538,7 @@ ex.printStackTrace();
     }
 
     @Override
-    public void NoPerm(IFPlayer p) {
+    public void NoPerm(IFPlayer<?> p) {
 
     }
 

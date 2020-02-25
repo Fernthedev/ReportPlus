@@ -22,7 +22,7 @@ public class ReportCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command name, String lable, String[] args) {
-		LangConfig lang = main.getLangConfig().getGsonConfigData();
+		LangConfig lang = main.getLangConfig().getConfigData();
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
 			if (main.getConfig().getBoolean("Enabled-Modules.Reporting")) {

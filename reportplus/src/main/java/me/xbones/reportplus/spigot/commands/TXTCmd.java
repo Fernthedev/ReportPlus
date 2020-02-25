@@ -17,7 +17,7 @@ public class TXTCmd implements CommandExecutor {
 	}
     @Override
     public boolean onCommand(CommandSender sender, Command name, String lable, String[] args) {
-		LangConfig lang = main.getLangConfig().getGsonConfigData();
+		LangConfig lang = main.getLangConfig().getConfigData();
     	if(sender.hasPermission("reportplus.addtxtcmd")) {
     		
     		if(args.length < 2) {

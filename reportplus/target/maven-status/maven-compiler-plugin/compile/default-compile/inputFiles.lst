@@ -1,76 +1,75 @@
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerChatListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\RPlayer.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\Bstats\Metrics.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\config\BungeeConfig.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\ReportCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\TXTCmd.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\Command.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\AddAnnouncementCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ConfigInventory.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\ReportPlus.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\LangConfig.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\ListAnnouncementsCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerReportListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\ReportPlus.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\Core.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\ReportPlusCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\InventoryManager.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\ReportPlusCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\events\BungeePlayerReportEvent.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerCommandListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\events\SpigotPlayerReportEvent.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ListReportsInventory.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CustomCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\TXTCmd.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\IChatComponent.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\exception\ExceptionType.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\CloseReportCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CustomTXTCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerJoinListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerCommandListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\BungeeUtils.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\ListReportsCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerJoinListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\InventoryClickListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerDeathListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\ReportCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerLeaveListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\CloseReportCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\config\SpigotConfig.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\HelpCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\SpigotUtils.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\TXTCmd.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ListReportsCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\chatcomponentapi\ChatComponentMessage.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\LogAppender.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerLeaveListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\events\PlayerReportEvent.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\ReportPlusAPIHandler.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\eventlisteners\ReadyEventListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\ReloadCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\configuration\ConfigurationManager.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\MySQL\MySQL.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\Utils.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\chatcomponentapi\UniversalChatComponentMessage.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\GsonConfigData.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\chatcomponentapi\ChatComponentMessage.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CloseReportWithMessage.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\GsonConfig.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\LogAppender.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ReportCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\eventlisteners\MessageCreatedListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\CmdCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\Bstats\Metrics.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerReportListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ReportPlusCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\DelAnnouncementCommand.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ReportInventory.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\IReportPlus.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\exception\ReportPlusException.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\IConfig.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\ListReportsCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\CloseReportInventoy.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\CmdCMD.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\MySQL\MySQLManager.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerChatListener.java
-C:\Users\fernr\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\CmdCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\IChatComponent.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerLeaveListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ConfigInventory.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\events\BungeePlayerReportEvent.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\ReportPlusCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\CmdCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\ReloadCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\CloseReportInventoy.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\ListReportsCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\events\PlayerReportEvent.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerJoinListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ListReportsInventory.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\Bstats\Metrics.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\TXTCmd.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\chatcomponentapi\UniversalChatComponentMessage.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\IConfig.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\LogAppender.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\chatcomponentapi\ChatComponentMessage.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ReportPlusCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\InventoryClickListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\SpigotUtils.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\TXTCmd.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerCommandListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\ReportPlusAPIHandler.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\LangConfig.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ReportCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\config\BungeeConfig.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\CmdCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\Command.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\Bstats\Metrics.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CloseReportWithMessage.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\Core.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\DelAnnouncementCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\configuration\ConfigurationManager.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\CmdCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerChatListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\ReportPlus.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerChatListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerLeaveListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CustomCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\ListReportsCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\CloseReportCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\ReportInventory.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\MySQL\MySQLManager.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\ReportPlus.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\ReportCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\exception\ExceptionType.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\LogAppender.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\gson\GsonConfigData.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\eventlisteners\ReadyEventListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\inventories\InventoryManager.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\events\SpigotPlayerReportEvent.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerReportListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerReportListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\chatcomponentapi\ChatComponentMessage.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\eventlisteners\MessageCreatedListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\universalcommands\ListReportsCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\RPlayer.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\ReportPlusCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\exception\ReportPlusException.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\BungeeUtils.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\ListAnnouncementsCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\config\SpigotConfig.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\IReportPlus.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\HelpCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\commands\TXTCmd.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\CloseReportCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\CustomTXTCMD.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerDeathListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\MySQL\MySQL.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\Utils.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\spigot\listeners\PlayerCommandListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\listeners\PlayerJoinListener.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\bungee\commands\ReportCommand.java
+E:\SSDUse\Programming Projects\IdeaProjects\ReportPlusRedo\reportplus\src\main\java\me\xbones\reportplus\core\commands\AddAnnouncementCommand.java

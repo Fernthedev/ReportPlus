@@ -2,10 +2,10 @@ package me.xbones.reportplus.core.universalcommands;
 
 import com.github.fernthedev.fernapi.universal.Universal;
 import com.github.fernthedev.fernapi.universal.api.CommandSender;
+import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import com.github.fernthedev.fernapi.universal.api.UniversalCommand;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
-import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.RPlayer;
 import me.xbones.reportplus.core.gson.LangConfig;
@@ -23,9 +23,9 @@ public class ReportCommand extends UniversalCommand {
 
     @Override
     public void execute(CommandSender commandSender, String[] args) {
-        LangConfig lang = main.getLangConfig().getGsonConfigData();
-        if (commandSender instanceof IFPlayer) {
-            IFPlayer p = (IFPlayer) commandSender;
+        LangConfig lang = main.getLangConfig().getConfigData();
+        if (commandSender instanceof IFPlayer<?>) {
+            IFPlayer<?> p = (IFPlayer<?>) commandSender;
             if (main.getBooleanFromConfig("Enabled-Modules.Reporting")) {
                 if (p.hasPermission("reportplus.use")) {
 

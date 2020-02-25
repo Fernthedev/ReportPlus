@@ -1,11 +1,11 @@
 package me.xbones.reportplus.core;
 
-import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
+import com.github.fernthedev.config.common.Config;
+import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.MySQL.MySQLManager;
-import me.xbones.reportplus.core.gson.GsonConfig;
 import me.xbones.reportplus.core.gson.LangConfig;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
@@ -73,7 +73,7 @@ public interface IReportPlus {
 
     String getStringFromMessages(String path);
 
-    void listReports(IFPlayer p, int page);
+    void listReports(IFPlayer<?> p, int page);
 
     boolean getBooleanFromConfig(String path);
 
@@ -81,11 +81,11 @@ public interface IReportPlus {
 
     Core getCore();
 
-    void NoPerm(IFPlayer p);
+    void NoPerm(IFPlayer<?> p);
 
     public String getVersion();
 
     void setReportsList(List<Report> reports);
 
-    GsonConfig<LangConfig> getLangConfig();
+    Config<LangConfig> getLangConfig();
 }

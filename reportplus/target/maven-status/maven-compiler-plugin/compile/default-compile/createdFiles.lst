@@ -26,7 +26,6 @@ me\xbones\reportplus\spigot\LogAppender.class
 me\xbones\reportplus\core\IReportPlus.class
 me\xbones\reportplus\spigot\listeners\PlayerDeathListener.class
 me\xbones\reportplus\bungee\Bstats\Metrics$SingleLineChart.class
-me\xbones\reportplus\bungee\listeners\PlayerJoinListener$1.class
 me\xbones\reportplus\core\commands\DelAnnouncementCommand.class
 me\xbones\reportplus\core\universalcommands\ReportPlusCommand.class
 me\xbones\reportplus\bungee\commands\ListReportsCMD.class
@@ -85,7 +84,6 @@ me\xbones\reportplus\bungee\listeners\PlayerLeaveListener.class
 me\xbones\reportplus\core\universalcommands\ReportCommand.class
 me\xbones\reportplus\core\commands\ListAnnouncementsCommand.class
 me\xbones\reportplus\core\eventlisteners\ReadyEventListener.class
-me\xbones\reportplus\core\gson\GsonConfig.class
 me\xbones\reportplus\bungee\Bstats\Metrics$AdvancedBarChart.class
 me\xbones\reportplus\spigot\listeners\InventoryClickListener.class
 me\xbones\reportplus\spigot\Bstats\Metrics$CustomChart.class

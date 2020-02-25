@@ -32,12 +32,13 @@ public class LogAppender extends java.util.logging.Handler {
 
          String message = record.getMessage();
 
+         if (getFormatter() != null) message = getFormatter().formatMessage(record);
+
          SimpleDateFormat formatter;
          formatter = new SimpleDateFormat("HH:mm:ss");
          message = "[" + formatter.format(new Date(record.getMillis())) + " " + record.getLevel().toString() + "] " + message;
          if (main.getJda() != null)
              main.getJda().getTextChannelById((String) ConfigurationManager.get("Console-Channel-ID")).sendMessage(ChatColor.stripColor(message)).queue();
-
 
      }
 

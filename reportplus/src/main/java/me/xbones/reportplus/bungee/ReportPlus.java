@@ -1,8 +1,9 @@
 package me.xbones.reportplus.bungee;
 
+import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.fernapi.server.bungee.FernBungeeAPI;
 import com.github.fernthedev.fernapi.universal.Universal;
-import com.github.fernthedev.fernapi.universal.handlers.IFPlayer;
+import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import lombok.Getter;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
@@ -20,7 +21,6 @@ import me.xbones.reportplus.core.ReportPlusAPIHandler;
 import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
-import me.xbones.reportplus.core.gson.GsonConfig;
 import me.xbones.reportplus.core.gson.LangConfig;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
@@ -122,7 +122,9 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
         if(this.getConfig().getBoolean("Enabled-Modules.Console")) {
 
-            logger.addHandler(new LogAppender(core));
+            LogAppender handler = new LogAppender(core);
+
+            logger.addHandler(handler);
 
         }
 
@@ -239,7 +241,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     @Override
-    public void NoPerm(IFPlayer p) {
+    public void NoPerm(IFPlayer<?> p) {
 
     }
 
@@ -350,7 +352,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     @Override
-    public GsonConfig<LangConfig> getLangConfig() {
+    public Config<LangConfig> getLangConfig() {
         return utils.getLangConfig();
     }
 
