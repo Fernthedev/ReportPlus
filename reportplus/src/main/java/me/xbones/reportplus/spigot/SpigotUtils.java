@@ -37,6 +37,8 @@ public class SpigotUtils extends Utils {
                 reportsConfig.set("Reports", null); // Arrays.asList(arg0)(gangs));
 
                 reportsConfig.save(f);
+
+                if (main.getReports() == null) main.setReportsList(new ArrayList<>());
             } catch (IOException exception) {
 
                 exception.printStackTrace();
