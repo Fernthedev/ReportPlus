@@ -1,16 +1,0 @@
-
-^squid:S2184¹"FCast one of the operands of this multiplication operation to a "long".(‡öÔ
-Tsquid:S2589Â"7Remove this expression which always evaluates to "true"(À…Ñ®úÿÿÿÿ
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 59 to the 15 allowed.(¨ì™üÿÿÿÿ
-fsquid:S00100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ÃŞ6
-Esquid:S1066a"/Merge this if statement with the enclosing one.(éùÁX
-psquid:S3776†"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(€ÃŞ68üŠÔ±Ë-
-Ksquid:S1172¼".Remove this unused method parameter "discord".(¥Ò‡Çşÿÿÿÿ
-Fsquid:S1066`"/Merge this if statement with the enclosing one.(Åã€á
-Lsquid:S1066˜"/Merge this if statement with the enclosing one.(ŞØÿÿÿÿÿ
-Esquid:S1604â"(Make this anonymous inner class a lambda(’ºè„ÿÿÿÿÿ
-csquid:S2184ç"FCast one of the operands of this multiplication operation to a "long".(‹Ú©øüÿÿÿÿ
-Ksquid:S1066G"/Merge this if statement with the enclosing one.(ÛªÛ€şÿÿÿÿ
-Lsquid:S1066Ì"/Merge this if statement with the enclosing one.(ŞØÿÿÿÿÿ
-Esquid:S1604´"(Make this anonymous inner class a lambda(’ºè„ÿÿÿÿÿ
-lsquid:S00100¼"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥Ò‡Çşÿÿÿÿ

@@ -1,5 +1,0 @@
-
-Gsquid:S2160"+Override the "equals" method in this class.(òå°˜øÿÿÿÿ
-Ssquid:S3655<"7Call "Optional#isPresent()" before accessing the value.(åˆ¬¯üÿÿÿÿ
-psquid:S00117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºÙ–ì8œáè×Ë-
-isquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ëìœ§

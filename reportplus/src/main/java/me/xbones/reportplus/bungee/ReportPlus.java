@@ -140,7 +140,6 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         console.sendMessage(new TextComponent(Utils.CCT("&c   &7PLUGIN LOADED.   ")));
         console.sendMessage(new TextComponent(Utils.CCT("&c--- &6REPORTPLUS BUNGEE &c---")));
 
-
     }
 
 
@@ -168,7 +167,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
 
             if (!file.exists()) {
-                try (InputStream in = getResourceAsStream("me.xbones.reportplus.bungee config.yml")) {
+                try (InputStream in = getResourceAsStream("bungee config.yml")) {
                     Files.copy(in, file.toPath());
                 } catch (IOException e) {
                     e.printStackTrace();

@@ -1,12 +1,0 @@
-
-]squid:HiddenFieldCheckè":Rename "plugin" which hides the field declared at line 55.(Ì˜Å¼
-rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğàõê
-dsquid:S00112Í"FDefine and throw a dedicated exception instead of using a generic one.(Šëüùÿÿÿÿ
-_squid:S00112è"FDefine and throw a dedicated exception instead of using a generic one.(ñ·õ‰
-tsquid:S2629í"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(åµ¸±
-dsquid:S2259ú"LA "NullPointerException" could be thrown; "compressedData" is nullable here.(ö»Øê
-Rsquid:S1141©"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
->squid:S1168œ"&Return an empty array instead of null.(¥¹ï
-Bsquid:S1181Ä"%Catch Exception instead of Throwable.(•”ø¾øÿÿÿÿ
-psquid:ModifiersOrderCheck©"EReorder the modifiers to comply with the Java Language Specification.(íçÂÊÿÿÿÿÿ
-tsquid:S2629"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(î“Ï

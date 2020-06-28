@@ -1,5 +1,0 @@
-
-ˆsquid:S1319"qThe type of the "cooldowns" object should be an interface such as "Map" rather than the implementation "HashMap".(î›Âò
-psquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(î›Âò
-isquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 41 to the 15 allowed.(õóøÎ
-ƒ"squid:ClassVariableVisibilityCheck"UMake cooldowns a static final constant or non-public and provide accessors if needed.(î›Âò

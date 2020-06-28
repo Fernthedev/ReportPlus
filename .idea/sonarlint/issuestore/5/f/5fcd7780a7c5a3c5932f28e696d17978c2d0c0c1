@@ -1,9 +1,0 @@
-
-osquid:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(§§‡
-osquid:S2293M"YReplace the type specification in this constructor call with the diamond operator ("<>").(§§‡
-hsquid:S001177"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§§‡
-isquid:S001173"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ã–·
-hsquid:S00117M"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§§‡
-nsquid:S00117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓåπÍ˛ˇˇˇˇ
-isquid:S00117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ﬁ≤Ω
-ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÇçñ˚ˇˇˇˇ

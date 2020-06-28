@@ -1,4 +1,6 @@
 
+.idea/sonarlint/
+
 ### CVS template
 /CVS/*
 **/CVS/*

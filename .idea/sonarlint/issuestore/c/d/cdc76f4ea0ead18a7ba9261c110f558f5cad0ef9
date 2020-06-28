@@ -1,10 +1,0 @@
-
-isquid:S00117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô‹Ðá
-hsquid:S00117<"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¤à
->squid:S1172"(Remove this unused method parameter "p".(¨ä¼
-
-osquid:S2293<"YReplace the type specification in this constructor call with the diamond operator ("<>").(¤¤à
-osquid:S2293("YReplace the type specification in this constructor call with the diamond operator ("<>").(¤¤à
-isquid:S001178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(áÞ²½
-hsquid:S00117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¤à
-nsquid:S00117."QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îŒ¹êþÿÿÿÿ

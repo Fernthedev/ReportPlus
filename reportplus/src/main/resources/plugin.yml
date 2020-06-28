@@ -2,6 +2,7 @@ name: ReportPlus
 version: ${project.buildVer}
 main: me.xbones.reportplus.spigot.ReportPlus
 authors: [xBones,Fernthedev]
+api-version: 1.14
 softdepend:
   - Vault
   - TitleAPI
@@ -9,6 +10,10 @@ commands:
   report:
     description: Report players to staff in the server!
     usage: /report <Message>
+    aliases:
+      - rpgui
+      - reportgui
+      - spigotreport
   txtcmd:
     description: Add a command to the discord bot that says the text you specify!
     usage: /txtcmd <Command> <Text>

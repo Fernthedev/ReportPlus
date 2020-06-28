@@ -27,7 +27,7 @@ public class ReportInventory {
 
     public void initializeReports(Player p) {
         LangConfig lang = reportPlus.getLangConfig().getConfigData();
-        glassMaterial = Material.LEGACY_STAINED_GLASS_PANE;
+        glassMaterial = Material.BLACK_STAINED_GLASS_PANE;
         durability = 15;
         myInventory = Bukkit.createInventory(null, 54, translate( lang.getGuiGeneralTitle()));
         createDisplay(glassMaterial, myInventory, 2, translate(lang.getGlassMatMessage()), translate(lang.getGlassMatLore()), durability);

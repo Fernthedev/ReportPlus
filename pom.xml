@@ -45,7 +45,7 @@
         <dependency>
             <groupId>com.github.Fernthedev.FernAPI</groupId>
             <artifactId>all</artifactId>
-            <version>1.9.0-beta10</version>
+            <version>1.9.0-rc1</version>
         </dependency>
 
 <!--        <dependency>-->

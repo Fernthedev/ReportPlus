@@ -11,10 +11,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ReportCommand implements CommandExecutor {
 	private ReportPlus main;
-	public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+	public Map<String, Long> cooldowns = new HashMap<>();
 
 	public ReportCommand(ReportPlus main) {
 		this.main = main;
