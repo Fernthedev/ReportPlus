@@ -569,7 +569,11 @@ ex.printStackTrace();
     @Override
     public boolean callReportEvent(IRPlayer player, String reported, String report, ReportType type) {
         SpigotPlayerReportEvent event = new SpigotPlayerReportEvent(player,reported,report,type);
+//        Bukkit.getScheduler().callSyncMethod(this, () -> {
         Bukkit.getPluginManager().callEvent(event);
+
+//            return null;
+//        });
         return event.isCancelled();
     }
 

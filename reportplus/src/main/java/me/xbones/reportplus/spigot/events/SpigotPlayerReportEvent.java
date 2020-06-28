@@ -19,6 +19,7 @@ public class SpigotPlayerReportEvent extends Event implements Cancellable, Playe
     private boolean isCancelled;
 
     public SpigotPlayerReportEvent(IRPlayer player, String reported, String report, ReportType type) {
+        super(true);
         Player p = Bukkit.getPlayer(player.getUniqueId());
         this.player = p;
         this.report = report;
