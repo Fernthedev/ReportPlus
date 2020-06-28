@@ -39,8 +39,8 @@ public class InventoryClickListener implements Listener {
 
         try {
             if (main.getRPInventoryManager().getReportInventory().getInventory() != null
-                    && ChatColor.translateAlternateColorCodes('&', event.getView().getTitle()).equals(
-                    ChatColor.translateAlternateColorCodes('&', main.getRPInventoryManager().getReportInventory().getTitle()))) {
+                    && translateAndStrip(event.getView().getTitle()).equals(
+                    translateAndStrip(main.getRPInventoryManager().getReportInventory().getTitle()))) {
 
 
                 if (clicked != null) {
@@ -82,8 +82,8 @@ public class InventoryClickListener implements Listener {
                     }
                 }
 
-            } else if (event.getView().getTitle().equals(
-                    main.getRPInventoryManager().getReportsList().getTitle()
+            } else if (translateAndStrip(event.getView().getTitle()).equals(
+                    translateAndStrip(main.getRPInventoryManager().getReportsList().getTitle())
             )) {
                 if (clicked.getType() == Material.LEGACY_BOOK_AND_QUILL) {
                     List<String> lore;
@@ -107,8 +107,8 @@ public class InventoryClickListener implements Listener {
                         }
                     }
                 }
-            } else if (ChatColor.translateAlternateColorCodes('&', event.getView().getTitle())
-                    .equals(ChatColor.translateAlternateColorCodes('&', main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName()))) {
+            } else if (translateAndStrip(event.getView().getTitle())
+                    .equals(translateAndStrip(main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName()))) {
 
                 Report r = main.getSelectedReports().get(player.getName());
                 if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 14) {
@@ -221,5 +221,9 @@ public class InventoryClickListener implements Listener {
             main.getUtils().getReportsConfig().set("Reports.Report" + r.getReportId(), null);
 
         main.getServer().getScheduler().scheduleSyncDelayedTask(main, () -> main.getUtils().saveReportsToConfig(), 20 * 2);
+    }
+
+    private String translateAndStrip(String s) {
+        return ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', s));
     }
 }
