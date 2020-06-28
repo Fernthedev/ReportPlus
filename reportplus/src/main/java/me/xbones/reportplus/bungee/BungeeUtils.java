@@ -2,6 +2,7 @@ package me.xbones.reportplus.bungee;
 
 import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.config.gson.GsonConfig;
+import lombok.SneakyThrows;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.gson.LangConfig;
@@ -79,6 +80,7 @@ public class BungeeUtils {
 
     }
 
+    @SneakyThrows
     public void createLangConfig() {
         File f = new File(main.getProxy().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
         langConfig = new GsonConfig<>(new LangConfig(), f);

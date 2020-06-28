@@ -2,6 +2,7 @@ package me.xbones.reportplus.spigot;
 
 import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.config.gson.GsonConfig;
+import lombok.SneakyThrows;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.Utils;
@@ -70,6 +71,7 @@ public class SpigotUtils extends Utils {
 
     }
 
+    @SneakyThrows
     public void createLangJSON() {
         File f = new File(Bukkit.getServer().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
         langConfig = new GsonConfig<>(new LangConfig(), f);
