@@ -1,5 +1,6 @@
 package me.xbones.reportplus.spigot.listeners;
 
+import com.github.fernthedev.fernapi.universal.Universal;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.spigot.ReportPlus;
 import org.bukkit.Bukkit;
@@ -31,10 +32,15 @@ public class InventoryClickListener implements Listener {
         inventory = event.getInventory();
         String reportMsg = main.getUtils().getMessagesConfig().getString("Button-Click-Message");
 
+        Universal.debug("Inventory title: " + event.getView().getTitle());
+
+        Universal.debug("Checking " + main.getRPInventoryManager().getReportInventory().getTitle());
+        Universal.debug("Then checking " +  main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName());
+
         try {
             if (main.getRPInventoryManager().getReportInventory().getInventory() != null
-                    && event.getView().getTitle().equals(
-                    main.getRPInventoryManager().getReportInventory().getTitle())) {
+                    && ChatColor.translateAlternateColorCodes('&', event.getView().getTitle()).equals(
+                    ChatColor.translateAlternateColorCodes('&', main.getRPInventoryManager().getReportInventory().getTitle()))) {
 
 
                 if (clicked != null) {
@@ -101,7 +107,8 @@ public class InventoryClickListener implements Listener {
                         }
                     }
                 }
-            } else if (ChatColor.translateAlternateColorCodes('&', event.getView().getTitle()).equals(main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName())) {
+            } else if (ChatColor.translateAlternateColorCodes('&', event.getView().getTitle())
+                    .equals(ChatColor.translateAlternateColorCodes('&', main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName()))) {
 
                 Report r = main.getSelectedReports().get(player.getName());
                 if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 14) {
@@ -172,12 +179,7 @@ public class InventoryClickListener implements Listener {
             main.getSqlManager().removeReportFromDatabase(r);
         else{
             main.getUtils().getReportsConfig().set("Reports.Report" + r.getReportId(), null);
-        main.getServer().getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
-            @Override
-            public void run() {
-                main.getUtils().saveReportsToConfig();
-            }
-        }, 20 * 2);}
+        main.getServer().getScheduler().scheduleSyncDelayedTask(main, () -> main.getUtils().saveReportsToConfig(), 20 * 2);}
     }
 
     public void CloseReport(String closer, Report r, boolean discord){
@@ -218,11 +220,6 @@ public class InventoryClickListener implements Listener {
         else
             main.getUtils().getReportsConfig().set("Reports.Report" + r.getReportId(), null);
 
-        main.getServer().getScheduler().scheduleSyncDelayedTask(main, new Runnable() {
-            @Override
-            public void run() {
-                main.getUtils().saveReportsToConfig();
-            }
-        }, 20 * 2);
+        main.getServer().getScheduler().scheduleSyncDelayedTask(main, () -> main.getUtils().saveReportsToConfig(), 20 * 2);
     }
 }
