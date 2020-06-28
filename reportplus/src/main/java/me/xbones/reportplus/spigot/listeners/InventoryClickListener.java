@@ -32,10 +32,13 @@ public class InventoryClickListener implements Listener {
         inventory = event.getInventory();
         String reportMsg = main.getUtils().getMessagesConfig().getString("Button-Click-Message");
 
-        Universal.debug("Inventory title: " + event.getView().getTitle());
+        Universal.debug("Inventory title: (no color) " + translateAndStrip(event.getView().getTitle()));
 
-        Universal.debug("Checking " + main.getRPInventoryManager().getReportInventory().getTitle());
-        Universal.debug("Then checking " +  main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName());
+        Universal.debug("Checking (no color) " + translateAndStrip(main.getRPInventoryManager().getReportInventory().getTitle()));
+
+        try {
+            Universal.debug("Then checking (no color) " + translateAndStrip(main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName()));
+        } catch (NullPointerException ignored) {}
 
         try {
             if (main.getRPInventoryManager().getReportInventory().getInventory() != null
