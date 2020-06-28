@@ -31,8 +31,9 @@ public class InventoryClickListener implements Listener {
         clicked = event.getCurrentItem();
         inventory = event.getInventory();
         String reportMsg = main.getUtils().getMessagesConfig().getString("Button-Click-Message");
+
         try {
-            if (main.getRPInventoryManager().getReportInventory() != null && ((Container) inventory).getCustomName().equals(
+            if (main.getRPInventoryManager().getReportInventory() != null && event.getView().getTitle().equals(
 
                     ((Container) main.getRPInventoryManager().getReportInventory()).getCustomName())) {
 
