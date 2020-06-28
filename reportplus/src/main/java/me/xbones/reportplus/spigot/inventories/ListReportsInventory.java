@@ -1,5 +1,6 @@
 package me.xbones.reportplus.spigot.inventories;
 
+import lombok.Getter;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.core.gson.LangConfig;
@@ -19,10 +20,14 @@ public class ListReportsInventory {
     private ReportPlus main;
     private Inventory reportsList;
 
+    @Getter
+    private String title;
+
     public ListReportsInventory(ReportPlus main) { this.main = main; }
 
     public void InitializeList() {
         LangConfig lang = main.getLangConfig().getConfigData();
+        title = lang.getGuiGeneralTitle();
         reportsList = Bukkit.createInventory(null, 54, translate( lang.getGuiGeneralTitle()));
         int slot =0;
         for(Report p : main.getReportsList()) {

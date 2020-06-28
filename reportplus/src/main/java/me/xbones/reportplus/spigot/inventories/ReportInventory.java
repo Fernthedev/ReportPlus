@@ -1,5 +1,6 @@
 package me.xbones.reportplus.spigot.inventories;
 
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import me.xbones.reportplus.core.IReportPlus;
@@ -21,6 +22,9 @@ public class ReportInventory {
     @NonNull
     private IReportPlus reportPlus;
 
+    @Getter
+    private String title;
+
     private Material glassMaterial;
     private short durability;
     private Inventory myInventory;
@@ -29,6 +33,7 @@ public class ReportInventory {
         LangConfig lang = reportPlus.getLangConfig().getConfigData();
         glassMaterial = Material.BLACK_STAINED_GLASS_PANE;
         durability = 15;
+        title = lang.getGuiGeneralTitle();
         myInventory = Bukkit.createInventory(null, 54, translate( lang.getGuiGeneralTitle()));
         createDisplay(glassMaterial, myInventory, 2, translate(lang.getGlassMatMessage()), translate(lang.getGlassMatLore()), durability);
         createDisplay(glassMaterial, myInventory, 6, translate(lang.getGlassMatMessage()), translate(lang.getGlassMatLore()), durability);
@@ -88,7 +93,7 @@ public class ReportInventory {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
-        ArrayList<String> Lore = new ArrayList<String>();
+        ArrayList<String> Lore = new ArrayList<>();
         Lore.add(lore);
         meta.setLore(Lore);
         item.setItemMeta(meta);

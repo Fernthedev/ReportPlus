@@ -11,8 +11,8 @@ import java.util.Map;
 public class InventoryManager {
 
     private ReportPlus main;
-    private Inventory myInventory;
-    private Inventory reportsList;
+    private ReportInventory myInventory;
+    private ListReportsInventory reportsList;
     private Map<Report, CloseReportInventoy> closeReportInventory;
     private Inventory customCloseReportInventory;
 
@@ -24,13 +24,13 @@ public class InventoryManager {
     public void initializeList() {
         ListReportsInventory inventory = new ListReportsInventory(main);
         inventory.InitializeList();
-        reportsList = inventory.getInventory();
+        reportsList = inventory;
     }
 
     public void initializeReports(Player p) {
         ReportInventory inventory = new ReportInventory(main);
         inventory.initializeReports(p);
-        myInventory = inventory.getInventory();
+        myInventory = inventory;
     }
 
     public void initializeCloseReportInventory(Report r){
@@ -42,11 +42,11 @@ public class InventoryManager {
         return closeReportInventory.get(r);
     }
 
-    public Inventory getReportsList() {
+    public ListReportsInventory getReportsList() {
         return reportsList;
     }
 
-    public Inventory getReportInventory() {
+    public ReportInventory getReportInventory() {
         return myInventory;
     }
 

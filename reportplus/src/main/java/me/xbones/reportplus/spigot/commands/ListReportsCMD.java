@@ -18,7 +18,7 @@ public class ListReportsCMD implements CommandExecutor {
     		if(sender instanceof Player) {
     				Player p = (Player)sender;
     				main.getRPInventoryManager().initializeList();
-    				p.openInventory(main.getRPInventoryManager().getReportsList());
+    				p.openInventory(main.getRPInventoryManager().getReportsList().getInventory());
     		}
     	} else {
 			sender.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&',

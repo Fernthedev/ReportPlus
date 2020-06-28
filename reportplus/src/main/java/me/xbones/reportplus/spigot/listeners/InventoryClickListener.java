@@ -5,7 +5,6 @@ import me.xbones.reportplus.spigot.ReportPlus;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.block.Container;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,9 +32,9 @@ public class InventoryClickListener implements Listener {
         String reportMsg = main.getUtils().getMessagesConfig().getString("Button-Click-Message");
 
         try {
-            if (main.getRPInventoryManager().getReportInventory() != null && event.getView().getTitle().equals(
-
-                    ((Container) main.getRPInventoryManager().getReportInventory()).getCustomName())) {
+            if (main.getRPInventoryManager().getReportInventory().getInventory() != null
+                    && event.getView().getTitle().equals(
+                    main.getRPInventoryManager().getReportInventory().getTitle())) {
 
 
                 if (clicked != null) {
@@ -64,7 +63,7 @@ public class InventoryClickListener implements Listener {
                         if (player.hasPermission("reportplus.listreports")) {
                             main.getRPInventoryManager().initializeList();
                             event.setCancelled(true);
-                            player.openInventory(main.getRPInventoryManager().getReportsList());
+                            player.openInventory(main.getRPInventoryManager().getReportsList().getInventory());
                         } else {
                             event.setCancelled(true);
                         }
@@ -77,13 +76,8 @@ public class InventoryClickListener implements Listener {
                     }
                 }
 
-            } else if (((Container) inventory.getHolder()).getCustomName().equals(
-
-
-                    ((Container) main.getRPInventoryManager().getReportsList().getHolder()).getCustomName()
-
-
-
+            } else if (event.getView().getTitle().equals(
+                    main.getRPInventoryManager().getReportsList().getTitle()
             )) {
                 if (clicked.getType() == Material.LEGACY_BOOK_AND_QUILL) {
                     List<String> lore;
@@ -107,7 +101,7 @@ public class InventoryClickListener implements Listener {
                         }
                     }
                 }
-            } else if (ChatColor.translateAlternateColorCodes('&', ((Container) inventory).getCustomName()).equals(main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName())) {
+            } else if (ChatColor.translateAlternateColorCodes('&', event.getView().getTitle()).equals(main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName())) {
 
                 Report r = main.getSelectedReports().get(player.getName());
                 if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 14) {
@@ -119,7 +113,7 @@ public class InventoryClickListener implements Listener {
                 } else if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 5) {
                     player.closeInventory();
                     main.getRPInventoryManager().initializeList();
-                    player.openInventory(main.getRPInventoryManager().getReportsList());
+                    player.openInventory(main.getRPInventoryManager().getReportsList().getInventory());
                     main.getSelectedReports().remove(player.getName());
                 } else if (clicked.getType() == Material.BARRIER) {
                     CloseReport(player, r);

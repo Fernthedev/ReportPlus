@@ -311,7 +311,7 @@ ex.printStackTrace();
 
     public void showGUI(Player p) {
         iManager.initializeReports(p);
-        p.openInventory(iManager.getReportInventory());
+        p.openInventory(iManager.getReportInventory().getInventory());
 
     }
 
