@@ -99,6 +99,8 @@ public class ReportPlus extends FernSpigotAPI implements IReportPlus {
         }
 
         try{
+            reportsList = new ArrayList<>();
+
             sqlManager = new MySQLManager(core);
 
             if(getConfig().getBoolean("Enabled-Modules.MySQL.Enabled"))
