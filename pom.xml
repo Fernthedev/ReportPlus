@@ -7,9 +7,9 @@
     <groupId>me.xbones.reportplus</groupId>
     <artifactId>ReportPlus</artifactId>
     <packaging>pom</packaging>
-    <version>7.5-pre2</version>
+    <version>7.5-pre3</version>
     <properties>
-        <project.buildVer>7.5-pre2</project.buildVer>
+        <project.buildVer>7.5-pre3</project.buildVer>
     </properties>
     <modules>
         <module>reportplus-api</module>
