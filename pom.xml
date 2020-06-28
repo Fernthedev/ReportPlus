@@ -38,14 +38,17 @@
             <id>velocity</id>
             <url>https://repo.velocitypowered.com/snapshots/</url>
         </repository>
-
+        <repository>
+            <id>aikar</id>
+            <url>https://repo.aikar.co/content/groups/aikar/</url>
+        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
             <groupId>com.github.Fernthedev.FernAPI</groupId>
             <artifactId>all</artifactId>
-            <version>1.9.0-rc1</version>
+            <version>1.9.0-rc3</version>
         </dependency>
 
 <!--        <dependency>-->
@@ -111,6 +114,9 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -169,15 +175,29 @@
                         </filter>
                     </filters>
 
-<!--                    <relocations>-->
-<!--                        <relocation>-->
+                    <relocations>
+                        <relocation>
+                            <pattern>co.aikar.commands</pattern>
+                            <shadedPattern>reportplus.acf</shadedPattern> <!-- Replace this -->
+                        </relocation>
+                        <relocation>
+                            <pattern>co.aikar.locales</pattern>
+                            <shadedPattern>reportplus.locales</shadedPattern> <!-- Replace this -->
+                        </relocation>
+                        <relocation>
+                            <pattern>com.github.fernthedev</pattern>
+                            <shadedPattern>reportplus.com.github.fernthedev</shadedPattern> <!-- Replace this -->
+                        </relocation>
+
+
+                        <!--                        <relocation>-->
 <!--                            <pattern>org.apache.logging.log4j</pattern>-->
 <!--                            <shadedPattern>reportplus.org.apache.logging.log4j</shadedPattern>-->
 <!--                            <includes>-->
 <!--                                <include>org.apache.logging.log4j.*</include>-->
 <!--                            </includes>-->
 <!--                        </relocation>-->
-<!--                    </relocations>-->
+                    </relocations>
 
                 </configuration>
 

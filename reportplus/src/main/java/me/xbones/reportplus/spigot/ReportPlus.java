@@ -297,7 +297,7 @@ ex.printStackTrace();
         return utils.getLanguageConfig();
     }
 
-    public InventoryManager getInventoryManager() {
+    public InventoryManager getRPInventoryManager() {
         return iManager;
     }
     public Map<String, Report> getSelectedReports() {

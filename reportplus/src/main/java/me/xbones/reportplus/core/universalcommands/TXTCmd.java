@@ -1,25 +1,26 @@
 package me.xbones.reportplus.core.universalcommands;
 
-import com.github.fernthedev.fernapi.universal.api.CommandSender;
-import com.github.fernthedev.fernapi.universal.api.UniversalCommand;
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.Default;
+import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.gson.LangConfig;
 
-
-public class TXTCmd extends UniversalCommand {
+@CommandAlias("txtcmd")
+public class TXTCmd extends BaseCommand {
 
 	private IReportPlus main;
 
 	public TXTCmd(IReportPlus main) {
-		super("txtcmd");
 		this.main = main;
 	}
 
 
-	@Override
-	public void execute(CommandSender sender, String[] args) {
+	@Default
+	public void execute(FernCommandIssuer sender, String[] args) {
 		LangConfig lang = main.getLangConfig().getConfigData();
     	if(sender.hasPermission("reportplus.addtxtcmd")) {
     		if(args.length < 2) {

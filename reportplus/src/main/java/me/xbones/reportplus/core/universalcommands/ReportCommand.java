@@ -1,9 +1,11 @@
 package me.xbones.reportplus.core.universalcommands;
 
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.Default;
 import com.github.fernthedev.fernapi.universal.Universal;
-import com.github.fernthedev.fernapi.universal.api.CommandSender;
+import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
-import com.github.fernthedev.fernapi.universal.api.UniversalCommand;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.core.IReportPlus;
@@ -12,17 +14,17 @@ import me.xbones.reportplus.core.gson.LangConfig;
 
 import java.util.HashMap;
 
-public class ReportCommand extends UniversalCommand {
+@CommandAlias("report")
+public class ReportCommand extends BaseCommand {
 
     private HashMap<String, Long> cooldowns = new HashMap<>();
     private IReportPlus main;
     public ReportCommand(IReportPlus main){
-        super("report");
         this.main=main;
     }
 
-    @Override
-    public void execute(CommandSender commandSender, String[] args) {
+    @Default
+    public void execute(FernCommandIssuer commandSender, String[] args) {
         LangConfig lang = main.getLangConfig().getConfigData();
         if (commandSender instanceof IFPlayer<?>) {
             IFPlayer<?> p = (IFPlayer<?>) commandSender;

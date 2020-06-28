@@ -1,27 +1,27 @@
 package me.xbones.reportplus.core.universalcommands;
 
 
-import com.github.fernthedev.fernapi.universal.api.CommandSender;
-import com.github.fernthedev.fernapi.universal.api.UniversalCommand;
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.Default;
+import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.gson.LangConfig;
 
-
-public class CmdCMD extends UniversalCommand {
+@CommandAlias("cmdcmd")
+public class CmdCMD extends BaseCommand {
 
     private IReportPlus main;
 
     public CmdCMD(IReportPlus main) {
-        super("cmdcmd");
         this.main = main;
     }
 
-
-    @Override
-    public void execute(CommandSender sender, String[] args){
-        if (sender.hasPermission("reportplus.addcmdcmd")) {
+    @Default
+    public void execute(FernCommandIssuer sender, String[] args){
+        if (sender.hasPermission("reportplus.addcmd")) {
             LangConfig lang = main.getLangConfig().getConfigData();
             if (args.length < 2) {
                 sender.sendMessage(new TextMessage(translate( main.getPrefix() + " " + lang.getPleaseEnterCommandText())));

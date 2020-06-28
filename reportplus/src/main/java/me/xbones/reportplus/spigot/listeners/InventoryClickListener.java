@@ -32,9 +32,9 @@ public class InventoryClickListener implements Listener {
         inventory = event.getInventory();
         String reportMsg = main.getUtils().getMessagesConfig().getString("Button-Click-Message");
         try {
-            if (main.getInventoryManager().getReportInventory() != null && ((Container) inventory).getCustomName().equals(
+            if (main.getRPInventoryManager().getReportInventory() != null && ((Container) inventory).getCustomName().equals(
 
-                    ((Container) main.getInventoryManager().getReportInventory()).getCustomName())) {
+                    ((Container) main.getRPInventoryManager().getReportInventory()).getCustomName())) {
 
 
                 if (clicked != null) {
@@ -61,9 +61,9 @@ public class InventoryClickListener implements Listener {
 
                     } else if (clicked.getType() == Material.BOOK) {
                         if (player.hasPermission("reportplus.listreports")) {
-                            main.getInventoryManager().initializeList();
+                            main.getRPInventoryManager().initializeList();
                             event.setCancelled(true);
-                            player.openInventory(main.getInventoryManager().getReportsList());
+                            player.openInventory(main.getRPInventoryManager().getReportsList());
                         } else {
                             event.setCancelled(true);
                         }
@@ -79,7 +79,7 @@ public class InventoryClickListener implements Listener {
             } else if (((Container) inventory.getHolder()).getCustomName().equals(
 
 
-                    ((Container) main.getInventoryManager().getReportsList().getHolder()).getCustomName()
+                    ((Container) main.getRPInventoryManager().getReportsList().getHolder()).getCustomName()
 
 
 
@@ -97,16 +97,16 @@ public class InventoryClickListener implements Listener {
                                 if (report.equals(ChatColor.AQUA + "Report: " + r.getReportContent())) {
                                     main.getSelectedReports().put(player.getName(), r);
 
-                                    main.getInventoryManager().initializeCloseReportInventory(r);
+                                    main.getRPInventoryManager().initializeCloseReportInventory(r);
                                     event.setCancelled(true);
-                                    player.openInventory(main.getInventoryManager().getCloseReportInventory(r).getInventory());
+                                    player.openInventory(main.getRPInventoryManager().getCloseReportInventory(r).getInventory());
 
                                 }
                             }
                         }
                     }
                 }
-            } else if (ChatColor.translateAlternateColorCodes('&', ((Container) inventory).getCustomName()).equals(main.getInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName())) {
+            } else if (ChatColor.translateAlternateColorCodes('&', ((Container) inventory).getCustomName()).equals(main.getRPInventoryManager().getCloseReportInventory(main.getSelectedReports().get(player.getName())).getName())) {
 
                 Report r = main.getSelectedReports().get(player.getName());
                 if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 14) {
@@ -117,8 +117,8 @@ public class InventoryClickListener implements Listener {
 
                 } else if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 5) {
                     player.closeInventory();
-                    main.getInventoryManager().initializeList();
-                    player.openInventory(main.getInventoryManager().getReportsList());
+                    main.getRPInventoryManager().initializeList();
+                    player.openInventory(main.getRPInventoryManager().getReportsList());
                     main.getSelectedReports().remove(player.getName());
                 } else if (clicked.getType() == Material.BARRIER) {
                     CloseReport(player, r);
