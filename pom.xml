@@ -198,7 +198,10 @@
                             <pattern>com.github.fernthedev</pattern>
                             <shadedPattern>reportplus.com.github.fernthedev</shadedPattern> <!-- Replace this -->
                         </relocation>
-
+                        <relocation>
+                            <pattern>com.fasterxml.jackson.core</pattern>
+                            <shadedPattern>reportplus.com.fasterxml.jackson.core</shadedPattern> <!-- Replace this -->
+                        </relocation>
 
                         <!--                        <relocation>-->
 <!--                            <pattern>org.apache.logging.log4j</pattern>-->
