@@ -49,14 +49,14 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.14-SNAPSHOT</version>
+            <version>1.16-R0.3</version>
             <type>jar</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1</version>
+            <version>1.1.1</version>
         </dependency>
     </dependencies>
 
@@ -65,7 +65,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>3.2.4</version>
                 <configuration>
                     <finalName>ReportPlus-${project.buildVer}</finalName>
                 </configuration>
