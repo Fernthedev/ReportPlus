@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>7.5-pre3</version>
     <properties>
-        <project.buildVer>7.5-pre3</project.buildVer>
+        <project.buildVer>7.5-pre4</project.buildVer>
     </properties>
     <modules>
         <module>reportplus-api</module>

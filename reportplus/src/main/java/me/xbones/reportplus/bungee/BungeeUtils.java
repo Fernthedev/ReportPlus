@@ -92,8 +92,8 @@ public class BungeeUtils {
         try {
             if(f.exists())
             messagesConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(f);
-else{
-    f.createNewFile();
+        else{
+            f.createNewFile();
                 messagesConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(f);
 
             }

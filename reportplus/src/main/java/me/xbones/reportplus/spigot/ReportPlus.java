@@ -16,9 +16,9 @@ import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
 import me.xbones.reportplus.core.gson.LangConfig;
+import me.xbones.reportplus.core.universalcommands.*;
 import me.xbones.reportplus.spigot.Bstats.Metrics;
 import me.xbones.reportplus.spigot.chatcomponentapi.ChatComponentMessage;
-import me.xbones.reportplus.spigot.commands.*;
 import me.xbones.reportplus.spigot.config.SpigotConfig;
 import me.xbones.reportplus.spigot.events.SpigotPlayerReportEvent;
 import me.xbones.reportplus.spigot.inventories.InventoryManager;
@@ -257,11 +257,11 @@ ex.printStackTrace();
     public SpigotUtils getUtils(){return utils;}
 
     public void initializeCommands() {
-        this.getCommand("report").setExecutor(new ReportCommand(this));
-        this.getCommand("txtcmd").setExecutor(new TXTCmd(this));
-        this.getCommand("cmdcmd").setExecutor(new CmdCMD(this));
-        this.getCommand("reports").setExecutor(new ListReportsCMD(this));
-        this.getCommand("reportplus").setExecutor(new ReportPlusCommand(this));
+        Universal.getCommandHandler().registerCommand(new ReportCommand(this));
+        Universal.getCommandHandler().registerCommand(new TXTCmd(this));
+        Universal.getCommandHandler().registerCommand(new CmdCMD(this));
+        Universal.getCommandHandler().registerCommand(new ListReportsCMD(this));
+        Universal.getCommandHandler().registerCommand(new ReportPlusCommand(this));
         core.addCommand(new ReloadCommand(core));
         core.addCommand(new AddAnnouncementCommand(core));
         core.addCommand(new ListAnnouncementsCommand(core));

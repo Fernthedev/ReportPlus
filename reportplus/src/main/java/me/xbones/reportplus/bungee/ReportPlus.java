@@ -10,7 +10,6 @@ import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
 import me.xbones.reportplus.bungee.Bstats.Metrics;
 import me.xbones.reportplus.bungee.chatcomponentapi.ChatComponentMessage;
-import me.xbones.reportplus.bungee.commands.*;
 import me.xbones.reportplus.bungee.config.BungeeConfig;
 import me.xbones.reportplus.bungee.events.BungeePlayerReportEvent;
 import me.xbones.reportplus.bungee.listeners.*;
@@ -22,6 +21,7 @@ import me.xbones.reportplus.core.Utils;
 import me.xbones.reportplus.core.commands.*;
 import me.xbones.reportplus.core.configuration.ConfigurationManager;
 import me.xbones.reportplus.core.gson.LangConfig;
+import me.xbones.reportplus.core.universalcommands.*;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Activity;
@@ -280,12 +280,12 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     public void initializeCommands() {
-        getProxy().getPluginManager().registerCommand(this, new ReportCommand(this));
-        getProxy().getPluginManager().registerCommand(this,new TXTCmd(this));
-        getProxy().getPluginManager().registerCommand(this,new CmdCMD(this));
-        getProxy().getPluginManager().registerCommand(this,new ListReportsCMD(this));
-        getProxy().getPluginManager().registerCommand(this,new ReportPlusCommand(this));
-        getProxy().getPluginManager().registerCommand(this, new CloseReportCMD(this));
+        Universal.getCommandHandler().registerCommand(new ReportCommand(this));
+        Universal.getCommandHandler().registerCommand(new TXTCmd(this));
+        Universal.getCommandHandler().registerCommand(new CmdCMD(this));
+        Universal.getCommandHandler().registerCommand(new ListReportsCMD(this));
+        Universal.getCommandHandler().registerCommand(new ReportPlusCommand(this));
+        Universal.getCommandHandler().registerCommand(new CloseReportCMD(this));
         core.addCommand(new ReloadCommand(core));
         core.addCommand(new AddAnnouncementCommand(core));
         core.addCommand(new ListAnnouncementsCommand(core));

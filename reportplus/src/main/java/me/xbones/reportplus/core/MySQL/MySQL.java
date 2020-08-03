@@ -119,8 +119,7 @@ public class MySQL
         }
         connect(false);
         ResultSet rs = null;
-        try {
-            Statement st = getConnection().createStatement();
+        try(Statement st = getConnection().createStatement()) {
             rs = st.executeQuery(command);
         } catch (Exception e) {
             reportPlus.sendConsole(ChatColor.RED + "MySQL Query:");
