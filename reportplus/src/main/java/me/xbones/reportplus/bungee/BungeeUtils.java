@@ -84,6 +84,7 @@ public class BungeeUtils {
     public void createLangConfig() {
         File f = new File(main.getProxy().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
         langConfig = new GsonConfig<>(new LangConfig(), f);
+        langConfig.load();
 
     }
 

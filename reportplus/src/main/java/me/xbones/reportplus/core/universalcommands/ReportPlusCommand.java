@@ -2,8 +2,10 @@ package me.xbones.reportplus.core.universalcommands;
 
 
 import co.aikar.commands.BaseCommand;
+import co.aikar.commands.InvalidCommandArgument;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.Default;
+import com.github.fernthedev.config.common.exceptions.ConfigLoadException;
 import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
@@ -45,6 +47,12 @@ public class ReportPlusCommand extends BaseCommand {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (sender.hasPermission("reportplus.reload")) {
                     main.reloadPluginConfig();
+                    try {
+                        main.getLangConfig().load();
+                    } catch (ConfigLoadException e) {
+                        e.printStackTrace();
+                        throw new InvalidCommandArgument("Unable to reload: " + e.getLocalizedMessage());
+                    }
                     if (main.getBooleanFromConfig("Enabled-Modules.MySQL.Enabled"))
                         main.setReportsList(main.getSqlManager().getReports());
                     sender.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aPlugin reloaded!")));

@@ -80,7 +80,7 @@ public class SpigotUtils extends Utils {
     public void createLangJSON() {
         File f = new File(Bukkit.getServer().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
         langConfig = new GsonConfig<>(new LangConfig(), f);
-
+        langConfig.load();
     }
 
     @Deprecated
