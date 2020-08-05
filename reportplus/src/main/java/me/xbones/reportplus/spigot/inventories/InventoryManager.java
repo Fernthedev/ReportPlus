@@ -13,12 +13,11 @@ public class InventoryManager {
     private ReportPlus main;
     private ReportInventory myInventory;
     private ListReportsInventory reportsList;
-    private Map<Report, CloseReportInventoy> closeReportInventory;
+    private final Map<Report, CloseReportInventoy> closeReportInventory = new HashMap<>();
     private Inventory customCloseReportInventory;
 
     public InventoryManager(ReportPlus main) {
         this.main =  main;
-        closeReportInventory = new HashMap<>();
     }
 
     public void initializeList() {

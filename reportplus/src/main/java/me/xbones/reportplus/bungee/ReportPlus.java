@@ -4,6 +4,7 @@ import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.fernapi.server.bungee.FernBungeeAPI;
 import com.github.fernthedev.fernapi.universal.Universal;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
+import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import lombok.Getter;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
@@ -241,11 +242,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
     @Override
     public void NoPerm(IFPlayer<?> p) {
-
-    }
-
-    public void NoPerm(ProxiedPlayer p){
-        p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&',
+        p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&',
                 prefix + " " + utils.getMessagesConfig().getString("No-Permission"))));
     }
 

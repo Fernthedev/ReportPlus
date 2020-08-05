@@ -71,6 +71,7 @@ public interface IReportPlus {
 
     boolean callReportEvent(IRPlayer player, String reported, String report, ReportType type);
 
+    @Deprecated
     String getStringFromMessages(String path);
 
     void listReports(IFPlayer<?> p, int page);

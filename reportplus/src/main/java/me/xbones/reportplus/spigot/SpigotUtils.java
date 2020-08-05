@@ -18,7 +18,10 @@ import java.util.List;
 
 public class SpigotUtils extends Utils {
     private ReportPlus main;
+
+    @Deprecated
     private FileConfiguration messagesConfig;
+
     private FileConfiguration reportsConfig;
     private Config<LangConfig> langConfig;
 
@@ -80,6 +83,7 @@ public class SpigotUtils extends Utils {
 
     }
 
+    @Deprecated
     public void createMessagesYML() {
         File f = new File(Bukkit.getServer().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "messages.yml");
         messagesConfig = YamlConfiguration.loadConfiguration(f);
@@ -164,6 +168,7 @@ public class SpigotUtils extends Utils {
         }
     }
 
+    @Deprecated
     public FileConfiguration getMessagesConfig() {
         return messagesConfig;
     }

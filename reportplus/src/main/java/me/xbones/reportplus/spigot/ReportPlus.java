@@ -5,6 +5,7 @@ import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.fernapi.server.spigot.FernSpigotAPI;
 import com.github.fernthedev.fernapi.universal.Universal;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
+import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
@@ -74,6 +75,8 @@ public class ReportPlus extends FernSpigotAPI implements IReportPlus {
     @Override
     public void onEnable() {
         super.onEnable();
+        Universal.setDebug(true);
+
         core = new Core();
         console = Bukkit.getConsoleSender();
         main = this;
@@ -541,7 +544,8 @@ ex.printStackTrace();
 
     @Override
     public void NoPerm(IFPlayer<?> p) {
-
+        p.sendMessage(new TextMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&',
+                prefix + " " + utils.getMessagesConfig().getString("No-Permission"))));
     }
 
     @Override
@@ -578,6 +582,7 @@ ex.printStackTrace();
 //        });
         return event.isCancelled();
     }
+
 
     @Override
     public String getStringFromMessages(String path) {

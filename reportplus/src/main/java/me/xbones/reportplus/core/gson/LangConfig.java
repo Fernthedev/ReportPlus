@@ -2,6 +2,7 @@ package me.xbones.reportplus.core.gson;
 
 import lombok.Data;
 
+
 @Data
 public class LangConfig implements GsonConfigData {
 
