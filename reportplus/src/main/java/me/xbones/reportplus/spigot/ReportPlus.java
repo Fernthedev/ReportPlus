@@ -631,8 +631,8 @@ ex.printStackTrace();
     }
 
     @Override
-    public void listReports(IFPlayer p, int page) {
-        listReports((IFPlayer) Universal.getMethods().convertFPlayerToPlayer(p), page);
+    public void listReports(IFPlayer<?> p, int page) {
+        listReports((Player) p.getPlayer(), page);
     }
 
     @Override

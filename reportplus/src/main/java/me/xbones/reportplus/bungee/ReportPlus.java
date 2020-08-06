@@ -604,7 +604,7 @@ utils.saveReportsToConfig();
     }
 
     @Override
-    public void listReports(IFPlayer p, int page) {
+    public void listReports(IFPlayer<?> p, int page) {
         listReports((ProxiedPlayer) Universal.getMethods().convertFPlayerToPlayer(p), page);
     }
 
