@@ -67,7 +67,7 @@ public class ReportCommand extends BaseCommand {
                                 p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + main.getStringFromMessages("Cant-Report-Self"))));
                                 return;
                             }
-                            main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(),p.getUuid()), target.getName(), Message);
+                            Universal.getScheduler().runAsync(() -> main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(),p.getUuid()), target.getName(), Message));
                         }
                     }
 
