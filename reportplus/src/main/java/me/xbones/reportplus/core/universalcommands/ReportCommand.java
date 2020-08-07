@@ -59,7 +59,7 @@ public class ReportCommand extends BaseCommand {
 
                         String Message = sb.toString().trim();
 
-                        if(target == null)
+                        if(target.isPlayerNull())
                             p.sendMessage(new TextMessage(translate( main.getPrefix() + lang.getPlayerCannotBeFound())));
                         else {
                             if(target == p && !p.hasPermission("reportplus.reportSelf"))
