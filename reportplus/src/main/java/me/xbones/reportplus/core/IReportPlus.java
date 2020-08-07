@@ -1,6 +1,7 @@
 package me.xbones.reportplus.core;
 
 import com.github.fernthedev.config.common.Config;
+import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import me.xbones.reportplus.api.IRPlayer;
 import me.xbones.reportplus.api.Report;
@@ -29,9 +30,9 @@ public interface IReportPlus {
 
     void dispatchCommand(String command);
 
-    void AddTextCMD(Object obj, String cmd, String text);
+    void AddTextCMD(FernCommandIssuer obj, String cmd, String text);
 
-    void AddCMDCMD(Object obj, String cmd, String cmdtobeexecuted);
+    void AddCMDCMD(FernCommandIssuer obj, String cmd, String cmdtobeexecuted);
 
     void log(String text);
 

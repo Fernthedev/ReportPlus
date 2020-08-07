@@ -11,6 +11,8 @@ import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.RPlayer;
 import me.xbones.reportplus.core.gson.LangConfig;
+import me.xbones.reportplus.spigot.ReportPlus;
+import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 
@@ -52,22 +54,34 @@ public class ReportCommand extends BaseCommand {
                     } else {
 
                         IFPlayer<?> target = Universal.getMethods().getPlayerFromName(args[0]);
-                        StringBuilder sb = new StringBuilder();
-                        for (int i = 1; i < args.length; i++){
-                            sb.append(args[i]).append(" ");
-                        }
 
-                        String Message = sb.toString().trim();
 
                         if(target.isPlayerNull())
                             p.sendMessage(new TextMessage(translate( main.getPrefix() + lang.getPlayerCannotBeFound())));
                         else {
-                            if(target == p && !p.hasPermission("reportplus.reportSelf"))
-                            {
-                                p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + main.getStringFromMessages("Cant-Report-Self"))));
+                            if (target == p && !p.hasPermission("reportplus.reportSelf")) {
+                                p.sendMessage(new TextMessage(translate(main.getPrefix() + " " + main.getStringFromMessages("Cant-Report-Self"))));
                                 return;
                             }
-                            Universal.getScheduler().runAsync(() -> main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(),p.getUuid()), target.getName(), Message));
+
+                            if (Universal.getMethods().getServerType().isProxy()) {
+                                StringBuilder sb = new StringBuilder();
+                                for (int i = 1; i < args.length; i++){
+                                    sb.append(args[i]).append(" ");
+                                }
+
+                                String Message = sb.toString().trim();
+                                Universal.getScheduler().runAsync(() -> main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(), p.getUuid()), target.getName(), Message));
+                            } else {
+                                if (!(main instanceof ReportPlus)) throw new IllegalStateException("Report plus on non-proxy state is running a non-spigot instance");
+
+                                ReportPlus spigotMain = (ReportPlus) main;
+
+                                Universal.debug("Opening report GUI for " + p.getName() + " reporting " + target.getName());
+
+                                spigotMain.getReporting().put((Player) p.getPlayer(),(Player) target.getPlayer());
+                                spigotMain.showGUI((Player) p.getPlayer());
+                            }
                         }
                     }
 

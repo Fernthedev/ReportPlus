@@ -4,6 +4,7 @@ package me.xbones.reportplus.core.universalcommands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.InvalidCommandArgument;
 import co.aikar.commands.annotation.CommandAlias;
+import co.aikar.commands.annotation.CommandCompletion;
 import co.aikar.commands.annotation.Default;
 import com.github.fernthedev.config.common.exceptions.ConfigLoadException;
 import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
@@ -20,6 +21,7 @@ public class ReportPlusCommand extends BaseCommand {
         this.main = main;
     }
 
+    @CommandCompletion("@nothing|reload")
     @Default
     public void execute(FernCommandIssuer sender, String[] args){
         if (args.length == 0) {
