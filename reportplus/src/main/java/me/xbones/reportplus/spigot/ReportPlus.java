@@ -41,6 +41,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.util.*;
+import java.util.concurrent.Callable;
 
 
 public class ReportPlus extends FernSpigotAPI implements IReportPlus {
@@ -519,8 +520,11 @@ ex.printStackTrace();
 
                 }
                 if (Bukkit.getPluginManager().isPluginEnabled("TitleAPI")) {
+                    Bukkit.getScheduler().callSyncMethod(this, (Callable<Void>) () -> {
+                        TitleAPI.sendTitle(p, 10, 10, 10, ChatColor.translateAlternateColorCodes('&', title),ChatColor.translateAlternateColorCodes('&', subtitle));
+                        return null;
+                    });
 
-                    TitleAPI.sendTitle(p, 10, 10, 10, ChatColor.translateAlternateColorCodes('&', title),ChatColor.translateAlternateColorCodes('&', subtitle));
                     //ChatColor.translateAlternateColorCodes('&', subtitle));
 
                 }
