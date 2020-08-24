@@ -1,10 +1,14 @@
 package me.xbones.reportplus.spigot.listeners;
 
+import com.github.fernthedev.fernapi.universal.Universal;
 import me.xbones.reportplus.spigot.ReportPlus;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+
+import java.util.Objects;
+import java.util.logging.Level;
 
 public class PlayerCommandListener implements Listener {
 
@@ -30,8 +34,12 @@ public class PlayerCommandListener implements Listener {
                         ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &cPlease type in a message!"));
                 e.setCancelled(true);
             }
-            main.getCore().getJda().getTextChannelById(main.getCMDChannelID()).sendMessage(e.getPlayer().getName() + " -> " + e.getMessage()).queue();
-
+            try {
+                Objects.requireNonNull(main.getCore().getJda().getTextChannelById(main.getCMDChannelID()), "Could not find channel for commands. Make sure it's typed correctly.").sendMessage(e.getPlayer().getName() + " -> " + e.getMessage()).queue();
+            } catch (Exception ee) {
+                Universal.getLogger().log(Level.SEVERE, "There was an error in sending the channel. Ensure the channel ID is typed correctly and the bot can access the channel.");
+                throw ee;
+            }
         }
 
 
