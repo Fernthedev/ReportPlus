@@ -42,5 +42,5 @@ jobs:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
       - store_artifacts:
-          path: reportplus/target/
+          path: reportplus/target/*.jar
           destination: jars
