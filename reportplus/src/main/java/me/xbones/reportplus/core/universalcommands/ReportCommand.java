@@ -6,6 +6,7 @@ import co.aikar.commands.annotation.Default;
 import com.github.fernthedev.fernapi.universal.Universal;
 import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
+import com.github.fernthedev.fernapi.universal.api.OfflineFPlayer;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.core.IReportPlus;
@@ -53,10 +54,10 @@ public class ReportCommand extends BaseCommand {
 
                     } else {
 
-                        IFPlayer<?> target = Universal.getMethods().getPlayerFromName(args[0]);
+                        OfflineFPlayer<?> target = Universal.getMethods().getPlayerFromName(args[0]);
 
 
-                        if(target.isPlayerNull())
+                        if(target.isPlayerNull() || !target.isOnline())
                             p.sendMessage(new TextMessage(translate( main.getPrefix() + lang.getPlayerCannotBeFound())));
                         else {
                             if (target == p && !p.hasPermission("reportplus.reportSelf")) {
@@ -79,7 +80,7 @@ public class ReportCommand extends BaseCommand {
 
                                 Universal.debug("Opening report GUI for " + p.getName() + " reporting " + target.getName());
 
-                                spigotMain.getReporting().put((Player) p.getPlayer(),(Player) target.getPlayer());
+                                spigotMain.getReporting().put((Player) p.getPlayer(),(Player) target.getPlayer().getPlayer());
                                 spigotMain.showGUI((Player) p.getPlayer());
                             }
                         }
