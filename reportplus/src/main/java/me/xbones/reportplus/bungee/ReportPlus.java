@@ -3,6 +3,7 @@ package me.xbones.reportplus.bungee;
 import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.fernapi.server.bungee.FernBungeeAPI;
 import com.github.fernthedev.fernapi.universal.Universal;
+import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import lombok.Getter;
@@ -398,21 +399,19 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     @Override
-    public void AddTextCMD(Object obj, String cmd, String text) {
-        CommandSender p = (CommandSender)obj;
+    public void AddTextCMD(FernCommandIssuer obj, String cmd, String text) {
         main.getConfig().set("TXTCmds." + cmd + ".text", text);
         main.getConfig().set("TXTCmds." + cmd + ".description", "My cmd! (Configure this in the config.yml)");
         main.saveConfig();
         main.reloadPluginConfig();
 
         core.addCommand(new CustomTXTCMD(core, cmd));
-        p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!")));
+        obj.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!")));
 
     }
 
     @Override
-    public void AddCMDCMD(Object obj, String cmd, String cmdtobeexecuted) {
-        CommandSender p = (CommandSender)obj;
+    public void AddCMDCMD(FernCommandIssuer obj, String cmd, String cmdtobeexecuted) {
 
         main.getConfig().set("Cmds." + cmd + ".targetcmd", cmdtobeexecuted);
         main.getConfig().set("Cmds." + cmd + ".description", "My cmd! (Configure this in the config.yml)");
@@ -421,8 +420,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         main.reloadPluginConfig();
 
         core.addCommand(new CustomCMD(core, cmd));
-        p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!")));
-
+        obj.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!")));
     }
 
     @Override
@@ -603,7 +601,7 @@ utils.saveReportsToConfig();
     }
 
     @Override
-    public void listReports(IFPlayer p, int page) {
+    public void listReports(IFPlayer<?> p, int page) {
         listReports((ProxiedPlayer) Universal.getMethods().convertFPlayerToPlayer(p), page);
     }
 

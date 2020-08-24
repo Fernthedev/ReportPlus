@@ -4,6 +4,7 @@ import com.connorlinfoot.titleapi.TitleAPI;
 import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.fernapi.server.spigot.FernSpigotAPI;
 import com.github.fernthedev.fernapi.universal.Universal;
+import com.github.fernthedev.fernapi.universal.api.FernCommandIssuer;
 import com.github.fernthedev.fernapi.universal.api.IFPlayer;
 import com.github.fernthedev.fernapi.universal.data.chat.TextMessage;
 import me.xbones.reportplus.api.IRPlayer;
@@ -33,7 +34,6 @@ import net.milkbowl.vault.permission.Permission;
 import org.apache.logging.log4j.LogManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -321,26 +321,25 @@ ex.printStackTrace();
     }
 
     @Override
-    public void AddTextCMD(Object obj, String cmd, String text) {
+    public void AddTextCMD(FernCommandIssuer obj, String cmd, String text) {
 
-        CommandSender p = (CommandSender)obj;
+
         main.getConfig().set("TXTCmds." + cmd + ".text", text);
         main.getConfig().set("TXTCmds." + cmd + ".description", "My cmd! (Configure this in the config.yml)");
         main.saveConfig();
         main.reloadPluginConfig();
 
         core.addCommand(new CustomTXTCMD(core, cmd));
-        p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!"));
+        obj.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!"));
     }
 
     @Override
     public void log(String text){
         console.sendMessage(text);
     }
-    @Override
-    public void AddCMDCMD(Object obj, String cmd, String cmdtobeexecuted) {
-        CommandSender p = (CommandSender)obj;
 
+    @Override
+    public void AddCMDCMD(FernCommandIssuer obj, String cmd, String cmdtobeexecuted) {
         main.getConfig().set("Cmds." + cmd + ".targetcmd", cmdtobeexecuted);
         main.getConfig().set("Cmds." + cmd + ".description", "My cmd! (Configure this in the config.yml)");
         main.getConfig().set("Cmds." + cmd + ".say", "My cmd executed! (Configure this in the config.yml)");
@@ -348,7 +347,7 @@ ex.printStackTrace();
         main.reloadPluginConfig();
 
         core.addCommand(new CustomCMD(core, cmd));
-        p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!"));
+        obj.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aSuccess!"));
     }
 
     @Override
@@ -631,8 +630,8 @@ ex.printStackTrace();
     }
 
     @Override
-    public void listReports(IFPlayer p, int page) {
-        listReports((IFPlayer) Universal.getMethods().convertFPlayerToPlayer(p), page);
+    public void listReports(IFPlayer<?> p, int page) {
+        listReports((Player) p.getPlayer(), page);
     }
 
     @Override
