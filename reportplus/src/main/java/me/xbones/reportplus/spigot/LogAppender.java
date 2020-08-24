@@ -8,6 +8,7 @@ import org.apache.logging.log4j.core.appender.AbstractAppender;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 public class LogAppender extends AbstractAppender {
 
@@ -28,7 +29,7 @@ public class LogAppender extends AbstractAppender {
         formatter = new SimpleDateFormat("HH:mm:ss");
         message = "[" +formatter.format(new Date(System.currentTimeMillis())) + " " + event.getLevel().toString() + "] " + message;
         if(core.getJda() != null)
-        core.getJda().getTextChannelById((String)ConfigurationManager.get("Console-Channel-ID")).sendMessage(ChatColor.stripColor(message)).queue();
+        Objects.requireNonNull(core.getJda().getTextChannelById((String) ConfigurationManager.get("Console-Channel-ID")), "Cannot find console channel based on ID. Make sure it's typed correctly").sendMessage(ChatColor.stripColor(message)).queue();
     }
 
 }
