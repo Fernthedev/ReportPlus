@@ -41,6 +41,11 @@ jobs:
           paths:
             - ~/.m2
           key: v1-dependencies-{{ checksum "pom.xml" }}
+      - run:
+          name: Moving Artifacts
+          command: |
+            mkdir /tmp/artifacts;
+            mv reportplus/target/*.jar /tmp/artifacts;
       - store_artifacts:
-          path: reportplus/target/*.jar
+          path: /tmp/artifacts
           destination: jars
