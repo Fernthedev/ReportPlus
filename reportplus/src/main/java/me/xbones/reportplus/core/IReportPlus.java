@@ -20,7 +20,6 @@ public interface IReportPlus {
 
     String getMCChannelID();
 
-    String getMessage(String path);
 
     void broadcast(String message);
 
@@ -72,9 +71,6 @@ public interface IReportPlus {
 
     boolean callReportEvent(IRPlayer player, String reported, String report, ReportType type);
 
-    @Deprecated
-    String getStringFromMessages(String path);
-
     void listReports(IFPlayer<?> p, int page);
 
     boolean getBooleanFromConfig(String path);
@@ -90,4 +86,8 @@ public interface IReportPlus {
     void setReportsList(List<Report> reports);
 
     Config<LangConfig> getLangConfig();
+
+    default LangConfig getLangData() {
+        return getLangConfig().getConfigData();
+    }
 }

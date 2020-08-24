@@ -27,7 +27,7 @@ public class PlayerJoinListener implements Listener {
 
         if((boolean)ConfigurationManager.get("Enabled-Modules.Log-leave-and-join")) {
             main.getJda().getTextChannelById(main.getReportPlus().getMCChannelID())
-                    .sendMessage(rp.getUtils().getMessagesConfig().getString("Discord-Join-Message").replace("%player%", p.getName())).queue();
+                    .sendMessage(rp.getUtils().getLangConfig().getConfigData().getDiscordJoinMessage().replace("%player%", p.getName())).queue();
         }
 
         if(rp.getConfig().getStringList("User-Notifications." + p.getName()) != null){

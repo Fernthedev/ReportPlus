@@ -30,7 +30,7 @@ public class PlayerCommandListener implements Listener {
                     if(e.getSender() instanceof ProxiedPlayer)
                     {
                         ProxiedPlayer player = (ProxiedPlayer) e.getSender();
-                        String newText = rp.getUtils().getMessagesConfig().getString("Command-log-Format").replace("%server%", main.getReportPlus().getServerName(new RPlayer(main, player.getName(),player.getUniqueId()))).replace("%player%", player.getName()).replace("%cmd%", e.getMessage());
+                        String newText = rp.getUtils().getLangConfig().getConfigData().getCommandlogFormat().replace("%server%", main.getReportPlus().getServerName(new RPlayer(main, player.getName(),player.getUniqueId()))).replace("%player%", player.getName()).replace("%cmd%", e.getMessage());
                         main.getJda().getTextChannelById(rp.getCMDChannelID()).sendMessage(newText).queue();
                     }
 

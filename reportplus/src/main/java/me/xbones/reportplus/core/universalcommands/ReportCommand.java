@@ -49,7 +49,7 @@ public class ReportCommand extends BaseCommand {
                     // COOLDOWN END //
 
                     if(args.length < 2) {
-                            p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + main.getStringFromMessages("Not-Enough-Args"))));
+                            p.sendMessage(new TextMessage(translate( main.getPrefix() + " " + main.getLangData().getNotEnoughArgs())));
 
                     } else {
 
@@ -60,7 +60,7 @@ public class ReportCommand extends BaseCommand {
                             p.sendMessage(new TextMessage(translate( main.getPrefix() + lang.getPlayerCannotBeFound())));
                         else {
                             if (target == p && !p.hasPermission("reportplus.reportSelf")) {
-                                p.sendMessage(new TextMessage(translate(main.getPrefix() + " " + main.getStringFromMessages("Cant-Report-Self"))));
+                                p.sendMessage(new TextMessage(translate(main.getPrefix() + " " + main.getLangConfig().getConfigData().getCantReportSelf())));
                                 return;
                             }
 

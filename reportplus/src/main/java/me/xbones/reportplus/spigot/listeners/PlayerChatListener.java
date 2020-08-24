@@ -60,10 +60,10 @@ public class PlayerChatListener implements Listener {
             Report selectedReport = main.getSelectedReports().get(p.getName());
             Player reportOwner = Bukkit.getPlayer(selectedReport.getReporter());
             if(reportOwner != null){
-                reportOwner.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Message-Notification-Format").replace("%sender%", e.getPlayer().getName()).replace("%message%", e.getMessage())));
+                reportOwner.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", e.getPlayer().getName()).replace("%message%", e.getMessage())));
             }else{
                 List<String> messages = new ArrayList<>();
-                messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Message-Notification-Format").replace("%sender%", e.getPlayer().getName()).replace("%message%", e.getMessage())));
+                messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", e.getPlayer().getName()).replace("%message%", e.getMessage())));
                 main.getConfig().set("User-Notifications." + p.getName(), messages);
             }
             main.getSendingMessage().remove(p.getName());
@@ -111,10 +111,10 @@ public class PlayerChatListener implements Listener {
                 }
             }
 
-            String message = main.getUtils().getMessagesConfig().getString("Minecraft-Chat-Format").replace("%player%", p.getName()).replace("%message%", e.getMessage()).replace("%rank%", prefix);
+            String message = main.getUtils().getLanguageConfig().getConfigData().getMinecraftChatFormat().replace("%player%", p.getName()).replace("%message%", e.getMessage()).replace("%rank%", prefix);
             for(String bannedWord : main.getConfig().getStringList("Chat-Sync-Banned-Words")){
                 if ((message.toLowerCase().contains(bannedWord.toLowerCase()))){
-                    e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Chat-Sync-Banned-Word")));
+                    e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getChatSyncBannedWord()));
                     return;
                 }
             }

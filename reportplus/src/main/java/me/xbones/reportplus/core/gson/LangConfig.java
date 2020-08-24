@@ -2,6 +2,9 @@ package me.xbones.reportplus.core.gson;
 
 import lombok.Data;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 @Data
 public class LangConfig implements GsonConfigData {
@@ -19,7 +22,7 @@ public class LangConfig implements GsonConfigData {
     private String reporter = "Reporter";
     private String reported = "Reported";
     private String server = "Server";
-    private String reportID = "Report-ID";
+    private String reportID = "ReportID";
     private String reportContent = "Report Content";
 
     private String guiGeneralTitle = "&cRep&7ort";
@@ -65,4 +68,77 @@ public class LangConfig implements GsonConfigData {
     private String reportToDiscord = "&6Report through Discord";
     private String reportToBoth = "&6Report through Discord and Minecraft";
 
+
+    private String reportClosedMessage = "&cYour report with the id %id% has been closed!";
+    private String minecraftReportTitleMessageTitle = "&aNew Report!";
+    private String minecraftReportTitleMessageSubtitle = "&e%player% has made a new report";
+    private String discordReportTitleMessageTitle = "&aNew Report! Check your Discord!";
+    private String discordReportTitleMessageSubtitle = "&e%player% has made a new report";
+    private String minecraftChatFormat = "[%server%] %player% > %message%";
+    private String commandlogFormat = "[%server%] %player% > %cmd%";
+
+    private String discordChatFormat = "&7[Discord] &aUser %user% > %message%";
+    private String buttonClickMessage = "&6What would you like to report about this player?";
+    private String discordJoinMessage = ":heavy_plus_sign: Player %player% has joined the server!";
+    private String discordLeaveMessage = ":heavy_minus_sign: Player %player% has left the server!";
+    private String serverStartMessage = ":white_check_mark: Server has started!";
+    private String serverStopMessage = ":skull_crossbones: Server has stopped!";
+
+    private DiscordReportEmbed discordReportEmbed = new DiscordReportEmbed();
+
+    @Data
+    public static class DiscordReportEmbed {
+        private String title = "New report";
+        private String description = "You have received a new report! Information:";
+        private String reporter = "%reporter%";
+        private String reported = "%reported%";
+        private String server = "%server%";
+        private String reportID = "%reportid%";
+        private String reportContent = "%reportcontent%";
+    }
+
+
+
+    private String successReport = "&aSucessfully reported! &cYour report id is &b#%id%'";
+    private String enterMessage = "&aPlease enter the message to send.";
+    private String messageNotificationFormat = "&c%sender% &7> &a%message%";
+
+    private List<String> minecraftReportMessage = Arrays.asList(
+            " ",
+            "&8&m          I         ",
+            " ",
+            "          &6&lNew &c&lReport!         ",
+            " ",
+            "          &6Reporter: &c%reporter%          ",
+            " ",
+            "          &6Reported: &c%reported%          ",
+            " ",
+            "          &6Server: &c%server%          ",
+            " ",
+            "          &6Reason: &c%reportcontent%          ",
+            " ",
+            "&8&m          I         "
+    );
+
+    private List<String> minecraftReportReceiveFormat = Arrays.asList(
+            "&8&m          I         ",
+            " ",
+            "          &6&lReport &c&lClosed!         ",
+            " ",
+            "          &6Closer: &c%player%          ",
+            " ",
+            "          &6Report ID: &c%id%",
+            " ",
+            "          &6Report reason: &c%reason%",
+            " ",
+            "&8&m          I         "
+    );
+
+    private String chatSyncBannedWord = "&c&lDo not ping everyone!";
+    private String notEnoughArgs = "&cNot enough arguments! Use /rp for help!";
+    private String cantReportSelf = "&c&lYou cannot report yourself!";
+    private String successCloseReport = "&aSuccessfully closed report &c#%id%";
+
+
+    private String enterName = "&c&lPlease enter the name of the player!";
 }

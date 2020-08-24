@@ -30,7 +30,7 @@ public class CloseReportCMD extends BaseCommand {
 				IFPlayer<?> p = (IFPlayer<?>) sender;
 				if(args.length < 2){
 					p.sendMessage(new TextMessage(translate(
-							main.getPrefix() + " " + main.getStringFromMessages("Not-Enough-Args"))));
+							main.getPrefix() + " " + main.getLangData().getNotEnoughArgs())));
 				}else{
 					String reportID = args[0];
 					StringBuilder sb = new StringBuilder();
@@ -47,12 +47,12 @@ Report r = perform(main.getReports(), Integer.parseInt(reportID));
 					}
 
 					main.closeReport(p.getName(), r,false, Message);
-					p.sendMessage(new TextMessage(translate(main.getPrefix() +" " + main.getStringFromMessages("Success-Close-Report").replace("%id%",reportID))));
+					p.sendMessage(new TextMessage(translate(main.getPrefix() +" " + main.getLangData().getSuccessCloseReport().replace("%id%",reportID))));
 				}
 			}
 		} else {
 			sender.sendMessage(new TextMessage(translate(
-					main.getPrefix() + " " + main.getStringFromMessages("No-Permission"))));
+					main.getPrefix() + " " + main.getLangData().getNoPerm())));
 		}
 	}
 	public Report perform(final List<Report> list, final int name){

@@ -41,7 +41,7 @@ public class MessageCreatedListener implements EventListener {
                     }
                     String format = ChatColor
                             .translateAlternateColorCodes('&',
-                                    core.getReportPlus().getMessage("Discord-Chat-Format").replace("%user%",
+                                    core.getReportPlus().getLangData().getDiscordChatFormat().replace("%user%",
                                             e.getMessage().getAuthor().getName()))
                             .replace("%message%", e.getMessage().getContentRaw())
                             .replace("%id%", e.getMessage().getAuthor().getDiscriminator());

@@ -115,8 +115,6 @@ public class ReportPlus extends FernSpigotAPI implements IReportPlus {
 
             utils.createLangJSON();
 
-            utils.createMessagesYML();
-
             iManager.initializeList();
             for(Player p : Bukkit.getOnlinePlayers())
                 iManager.initializeReports(p);
@@ -139,12 +137,10 @@ ex.printStackTrace();
         initializeEvents();
         setupChat();
         setupPermissions();
-        getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable(){
-            public void run(){
-                if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-                    main.core.getJda().getTextChannelById(main.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Start-Message")).queue();
+        getServer().getScheduler().scheduleSyncDelayedTask(this, () -> {
+            if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
+                main.core.getJda().getTextChannelById(main.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getLanguageConfig().getConfigData().getServerStartMessage()).queue();
 
-            }
         });
         console.sendMessage(Utils.CCT("&c   &7PLUGIN LOADED.   "));
         console.sendMessage(Utils.CCT("&c--- &6REPORTPLUS &c---"));
@@ -311,7 +307,7 @@ ex.printStackTrace();
 
     public void NoPerm(Player p) {
         p.sendMessage(org.bukkit.ChatColor.translateAlternateColorCodes('&',
-                prefix + " " + utils.getMessagesConfig().getString("No-Permission")));
+                prefix + " " + utils.getLanguageConfig().getConfigData().getNoPerm()));
     }
 
     public void showGUI(Player p) {
@@ -355,7 +351,7 @@ ex.printStackTrace();
         super.onDisable();
         console.sendMessage(Utils.CCT("&c--- &6REPORTPLUS &c---"));
         if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-            core.getJda().getTextChannelById(Objects.requireNonNull(this.getConfig().getString("Server-Stop-Start-Channel"), "No server channel for server-stop provided")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Stop-Message")).queue();
+            core.getJda().getTextChannelById(Objects.requireNonNull(this.getConfig().getString("Server-Stop-Start-Channel"), "No server channel for server-stop provided")).sendMessage(main.getUtils().getLanguageConfig().getConfigData().getServerStopMessage()).queue();
         core.disconnectBot();
         console.sendMessage(Utils.CCT("&c    PLUGIN DISABLED   "));
         console.sendMessage(Utils.CCT("&c--- &6REPORTPLUS &c---"));
@@ -386,11 +382,6 @@ ex.printStackTrace();
     }
 
     @Override
-    public String getMessage(String path){
-        return utils.getMessagesConfig().getString(path);
-    }
-
-    @Override
     public void broadcast(String message){
         Bukkit.getServer().broadcastMessage(ChatColor.translateAlternateColorCodes('&', message));
     }
@@ -414,14 +405,14 @@ ex.printStackTrace();
 
         Player reportOwner = Bukkit.getPlayer(r.getReporter());
         if(reportOwner != null){
-            reportOwner.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Message-Notification-Format").replace("%sender%", name).replace("%message%", Message)));
+            reportOwner.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", name).replace("%message%", Message)));
         }else{
 
             List<String> messages = new ArrayList<>();
 
             if(main.getConfig().contains("User-Notifications." + r.getReporter()))
                 messages = main.getConfig().getStringList("User-Notifications." + r.getReporter());
-            messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Message-Notification-Format").replace("%sender%", name).replace("%message%", Message)));
+            messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", name).replace("%message%", Message)));
             main.getConfig().set("User-Notifications." +r.getReporter(), messages);
             main.saveConfig();
         }
@@ -523,7 +514,7 @@ ex.printStackTrace();
     public void broadcastNewReport(IRPlayer player, String title, String subtitle, String reported, String message){
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.hasPermission("reportplus.receive") || p.isOp()) {
-                for (String s : main.getUtils().getMessagesConfig().getStringList("Minecraft-Report-Format")) {
+                for (String s : main.getUtils().getLanguageConfig().getConfigData().getMinecraftReportMessage()) {
                     p.sendMessage(ChatColor.translateAlternateColorCodes('&', s.replace("%reporter%", player.getName()).replace("%reported%", reported).replace("%reportcontent%", message)));
 
                 }
@@ -544,7 +535,7 @@ ex.printStackTrace();
     @Override
     public void NoPerm(IFPlayer<?> p) {
         p.sendMessage(new TextMessage(net.md_5.bungee.api.ChatColor.translateAlternateColorCodes('&',
-                prefix + " " + utils.getMessagesConfig().getString("No-Permission"))));
+                prefix + " " + utils.getLanguageConfig().getConfigData().getNoPerm())));
     }
 
     @Override
@@ -580,12 +571,6 @@ ex.printStackTrace();
 //            return null;
 //        });
         return event.isCancelled();
-    }
-
-
-    @Override
-    public String getStringFromMessages(String path) {
-        return getUtils().getMessagesConfig().getString(path);
     }
 
     static <T> List<List<T>> chopped(List<T> list, final int L) {

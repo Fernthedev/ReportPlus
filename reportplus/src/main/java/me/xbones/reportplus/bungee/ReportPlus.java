@@ -120,7 +120,6 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
             ex.printStackTrace();
         }
         utils.createLangConfig();
-        utils.createMessagesYML();
 
         if(this.getConfig().getBoolean("Enabled-Modules.Console")) {
 
@@ -136,7 +135,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         initializeEvents();
         getProxy().getScheduler().schedule(this, () -> {
             if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-                main.core.getJda().getTextChannelById(main.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Start-Message")).queue();
+                main.core.getJda().getTextChannelById(main.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getLangConfig().getConfigData().getServerStartMessage()).queue();
 
         }, 1, TimeUnit.SECONDS);
         console.sendMessage(new TextComponent(Utils.CCT("&c   &7PLUGIN LOADED.   ")));
@@ -151,7 +150,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         super.onDisable();
         console.sendMessage(new TextComponent(Utils.CCT("&c--- &6REPORTPLUS BUNGEE &c---")));
         if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-            core.getJda().getTextChannelById(this.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Stop-Message")).queue();
+            core.getJda().getTextChannelById(this.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getLangConfig().getConfigData().getServerStopMessage()).queue();
         core.disconnectBot();
         console.sendMessage(new TextComponent(Utils.CCT("&c    PLUGIN DISABLED   ")));
         console.sendMessage(new TextComponent(Utils.CCT("&c--- &6REPORTPLUS BUNGEE &c---")));
@@ -243,7 +242,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     @Override
     public void NoPerm(IFPlayer<?> p) {
         p.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&',
-                prefix + " " + utils.getMessagesConfig().getString("No-Permission"))));
+                prefix + " " + utils.getLangConfig().getConfigData().getNoPerm())));
     }
 
     public void listReports(ProxiedPlayer p, int pageNumber){
@@ -367,11 +366,6 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     @Override
-    public String getMessage(String path) {
-        return utils.getMessagesConfig().getString(path);
-    }
-
-    @Override
     public void broadcast(String message) {
         getProxy().broadcast(new TextComponent(message));
     }
@@ -385,7 +379,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     public void broadcastNewReport(IRPlayer player, String title, String subtitle, String reported, String message) {
         for (ProxiedPlayer p : getProxy().getPlayers()) {
             if (p.hasPermission("reportplus.receive")) {
-                for (String s : main.getUtils().getMessagesConfig().getStringList("Minecraft-Report-Format")) {
+                for (String s : main.getUtils().getLangConfig().getConfigData().getMinecraftReportMessage()) {
                     p.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', s.replace("%reporter%", player.getName()).replace("%reported%", reported).replace("%reportcontent%", message).replace("%server%", getServerName(player)))));
 
                 }
@@ -447,14 +441,14 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
         ProxiedPlayer reportOwner = getProxy().getPlayer(report.getReporter());
         if(reportOwner != null){
-            reportOwner.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Message-Notification-Format").replace("%sender%", name).replace("%message%", Message))));
+            reportOwner.sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLangConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", name).replace("%message%", Message))));
         }else{
 
             List<String> messages = new ArrayList<>();
 
             if(main.getConfig().contains("User-Notifications." + report.getReporter()))
                 messages = main.getConfig().getStringList("User-Notifications." + report.getReporter());
-            messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Message-Notification-Format").replace("%sender%", name).replace("%message%", Message)));
+            messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLangConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", name).replace("%message%", Message)));
             main.getConfig().set("User-Notifications." +report.getReporter(), messages);
             main.saveConfig();
         }
@@ -463,11 +457,11 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     public void closeReport(String closer, Report r, boolean discord){
 
         if(getProxy().getPlayer(r.getReporter()) != null)
-            getProxy().getPlayer(r.getReporter()).sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Report-Closed-Message").replace("%id%", String.valueOf(r.getReportId())))));
+            getProxy().getPlayer(r.getReporter()).sendMessage(new TextComponent(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLangConfig().getConfigData().getReportClosedMessage().replace("%id%", String.valueOf(r.getReportId())))));
         else {
             if(main.getConfig().getStringList("User-Notifications." +r.getReporter()) != null){
                 List<String> notifications = main.getConfig().getStringList("User-Notifications." + r.getReporter());
-                notifications.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Report-Closed-Message").replace("%id%", String.valueOf(r.getReportId()))));
+                notifications.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLangConfig().getConfigData().getReportClosedMessage().replace("%id%", String.valueOf(r.getReportId()))));
                 main.getConfig().set("User-Notifications." + r.getReporter(), notifications);
                 main.saveConfig();
                 main.reloadPluginConfig();
@@ -595,10 +589,6 @@ utils.saveReportsToConfig();
         return event.isCancelled();
     }
 
-    @Override
-    public String getStringFromMessages(String s) {
-        return getUtils().getMessagesConfig().getString(s);
-    }
 
     @Override
     public void listReports(IFPlayer<?> p, int page) {

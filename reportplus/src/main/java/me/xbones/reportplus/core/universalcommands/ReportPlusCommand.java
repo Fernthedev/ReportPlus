@@ -60,7 +60,7 @@ public class ReportPlusCommand extends BaseCommand {
                     sender.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " &aPlugin reloaded!")));
                 } else {
                     sender.sendMessage(new TextMessage(ChatColor.translateAlternateColorCodes('&',
-                            main.getPrefix() + " " + main.getStringFromMessages("No-Permission"))));
+                            main.getPrefix() + " " + main.getLangData().getNoPerm())));
 
                 }
             }

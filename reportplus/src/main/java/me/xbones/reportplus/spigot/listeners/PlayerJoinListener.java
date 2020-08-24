@@ -24,17 +24,15 @@ public class PlayerJoinListener implements Listener {
         Player p = e.getPlayer();
         if(main.getConfig().getBoolean("Enabled-Modules.Log-leave-and-join")) {
             main.getCore().getJda().getTextChannelById(main.getMCChannelID())
-                    .sendMessage(main.getUtils().getMessagesConfig().getString("Discord-Join-Message").replace("%player%", p.getName())).queue();
+                    .sendMessage(main.getUtils().getLanguageConfig().getConfigData().getDiscordJoinMessage().replace("%player%", p.getName())).queue();
         }
 
         if(main.getConfig().getStringList("User-Notifications." + p.getName()) != null){
             List<String> notifications = main.getConfig().getStringList("User-Notifications." + p.getName());
 
-            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(main, new Runnable(){
-                public void run(){
-                    for(String s: notifications){
-                        e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', s));
-                    }
+            Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(main, () -> {
+                for(String s: notifications){
+                    e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', s));
                 }
             });
 

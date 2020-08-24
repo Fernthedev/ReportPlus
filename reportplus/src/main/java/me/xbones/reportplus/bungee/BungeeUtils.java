@@ -2,6 +2,7 @@ package me.xbones.reportplus.bungee;
 
 import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.config.gson.GsonConfig;
+import com.github.fernthedev.fernapi.universal.Universal;
 import lombok.SneakyThrows;
 import me.xbones.reportplus.api.Report;
 import me.xbones.reportplus.api.ReportType;
@@ -12,8 +13,6 @@ import net.md_5.bungee.config.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class BungeeUtils {
 
@@ -24,7 +23,6 @@ public class BungeeUtils {
         this.main=main;
     }
 
-    private Configuration messagesConfig;
     private Configuration reportsConfig;
 
 
@@ -73,87 +71,14 @@ public class BungeeUtils {
 
     }
 
-    public void SetIfNotExists( String key, Object value){
-        Configuration config = messagesConfig;
-        if(!config.contains(key))
-            config.set(key, value);
-
-    }
 
     @SneakyThrows
     public void createLangConfig() {
         File f = new File(main.getProxy().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "language.lang");
         langConfig = new GsonConfig<>(new LangConfig(), f);
         langConfig.load();
-
+        Universal.getLogger().info("Loaded language.lang");
     }
-
-    public void createMessagesYML() {
-        File f = new File(main.getProxy().getPluginManager().getPlugin("ReportPlus").getDataFolder(), File.separator + "messages.yml");
-        try {
-            if(f.exists())
-            messagesConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(f);
-        else{
-            f.createNewFile();
-                messagesConfig = ConfigurationProvider.getProvider(YamlConfiguration.class).load(f);
-
-            }
-            SetIfNotExists("Report-Closed-Message", "&cYour report with the id %id% has been closed!");
-            SetIfNotExists("Minecraft-Report-Title-Message.Title", "&aNew Report!");
-            SetIfNotExists("Minecraft-Report-Title-Message.Subtitle", "&e%player% has made a new report");
-            SetIfNotExists("Discord-Report-Title-Message.Title", "&aNew Report! Check your Discord!");
-            SetIfNotExists("Discord-Report-Title-Message.Subtitle", "&e%player% has made a new report");
-            SetIfNotExists("Minecraft-Chat-Format", "[%server%] %player% -> %message%");
-            SetIfNotExists("Command-log-Format", "[%server%] %player% -> %cmd%");
-
-            SetIfNotExists("Discord-Chat-Format", "&7[Discord] &aUser %user% -> %message%");
-            SetIfNotExists("Button-Click-Message", "&6What would you like to report about this player?");
-            SetIfNotExists("Discord-Join-Message", ":heavy_plus_sign: Player %player% has joined the server!");
-            SetIfNotExists("Discord-Leave-Message", ":heavy_minus_sign: Player %player% has left the server!");
-            SetIfNotExists("Server-Start-Message", ":white_check_mark: Server has started!");
-            SetIfNotExists("Server-Stop-Message", ":skull_crossbones: Server has stopped!");
-            SetIfNotExists("Discord-Report-Embed.Title", "New report");
-            SetIfNotExists("Discord-Report-Embed.Description", "You have received a new report! Information:");
-            SetIfNotExists("Discord-Report-Embed.Fields.Reporter", "%reporter%");
-            SetIfNotExists("Discord-Report-Embed.Fields.Reported", "%reported%");
-            SetIfNotExists("Discord-Report-Embed.Fields.Server", "%server%");
-            SetIfNotExists("Discord-Report-Embed.Fields.Report-ID", "%reportid%");
-            SetIfNotExists("Discord-Report-Embed.Fields.Report-Content", "%reportcontent%");
-            SetIfNotExists("Success-Report", "&aSucessfully reported! &cYour report id is &b#%id%'");
-            SetIfNotExists("Enter-Message", "&aPlease enter the message to send.");
-            SetIfNotExists("Message-Notification-Format", "&c%sender% &7-> &a%message%");
-
-            List<String> minecraftReport = new ArrayList<>();
-            minecraftReport.add(" ");
-            minecraftReport.add("&8&m          I         ");
-            minecraftReport.add(" ");
-            minecraftReport.add("          &6&lNew &c&lReport!         ");
-            minecraftReport.add(" ");
-            minecraftReport.add("          &6Reporter: &c%reporter%          ");
-            minecraftReport.add(" ");
-            minecraftReport.add("          &6Reported: &c%reported%          ");
-            minecraftReport.add(" ");
-            minecraftReport.add("          &6Server: &c%server%          ");
-            minecraftReport.add(" ");
-            minecraftReport.add("          &6Reason: &c%reportcontent%          ");
-            minecraftReport.add(" ");
-            minecraftReport.add("&8&m          I         ");
-
-            SetIfNotExists("Minecraft-Report-Format", minecraftReport);
-
-            SetIfNotExists("No-Permission", "&cYou don't have access to that command!");
-            SetIfNotExists("Chat-Sync-Banned-Word", "&c&lDo not ping everyone!");
-            SetIfNotExists("Not-Enough-Args", "&cNot enough arguments! Use /rp for help!");
-            SetIfNotExists("Cant-Report-Self", "&c&lYou cannot report yourself!");
-            SetIfNotExists("Success-Close-Report", "&aSuccessfully closed report &c#%id%");
-            ConfigurationProvider.getProvider(YamlConfiguration.class).save(messagesConfig,f);
-        } catch (IOException exception) {
-
-            exception.printStackTrace();
-        }
-
-    }
-
 
     public void saveReports() {
         File userdata = new File(main.getProxy().getPluginManager().getPlugin("ReportPlus").getDataFolder(),
@@ -164,10 +89,6 @@ public class BungeeUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public Configuration getMessagesConfig() {
-        return messagesConfig;
     }
 
     public Configuration getReportsConfig() {
@@ -195,4 +116,6 @@ public class BungeeUtils {
     public Config<LangConfig> getLangConfig() {
         return langConfig;
     }
+
+
 }

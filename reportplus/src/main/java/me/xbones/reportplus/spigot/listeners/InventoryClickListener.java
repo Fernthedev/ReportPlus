@@ -30,7 +30,7 @@ public class InventoryClickListener implements Listener {
         Player player = (Player) event.getWhoClicked();
         clicked = event.getCurrentItem();
         inventory = event.getInventory();
-        String reportMsg = main.getUtils().getMessagesConfig().getString("Button-Click-Message");
+        String reportMsg = main.getUtils().getLanguageConfig().getConfigData().getButtonClickMessage();
 
         Universal.debug("Inventory title: (no color) " + translateAndStrip(event.getView().getTitle()));
 
@@ -116,7 +116,7 @@ public class InventoryClickListener implements Listener {
                 Report r = main.getSelectedReports().get(player.getName());
                 if (clicked.getType() == Material.LEGACY_WOOL && clicked.getDurability() == (short) 14) {
 
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("Enter-Message")));
+                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getPrefix() + " " + main.getUtils().getLanguageConfig().getConfigData().getEnterMessage()));
                     player.closeInventory();
                     main.getSendingMessage().add(player.getName());
 
@@ -139,14 +139,14 @@ public class InventoryClickListener implements Listener {
     public void CloseReport(Player player, Report r){
         inventory.remove(clicked);
         player.sendMessage(ChatColor.translateAlternateColorCodes('&',
-                main.getPrefix() + " " + main.getUtils().getMessagesConfig().getString("Success-Close-Report").replace("%id%", String.valueOf(r.getReportId()))));
+                main.getPrefix() + " " + main.getUtils().getLanguageConfig().getConfigData().getSuccessCloseReport().replace("%id%", String.valueOf(r.getReportId()))));
         if(Bukkit.getPlayer(r.getReporter()) != null)
-            Bukkit.getPlayer(r.getReporter()).sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Report-Closed-Message").replace("%id%", String.valueOf(r.getReportId()))));
+            Bukkit.getPlayer(r.getReporter()).sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getReportClosedMessage().replace("%id%", String.valueOf(r.getReportId()))));
         else {
             if(main.getConfig().getStringList("User-Notifications." + r.getReporter()) != null){
 
                 List<String> notifications = main.getConfig().getStringList("User-Notifications." + r.getReporter());
-                notifications.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Report-Closed-Message").replace("%id%", String.valueOf(r.getReportId()))));
+                notifications.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getReportClosedMessage().replace("%id%", String.valueOf(r.getReportId()))));
                 main.getConfig().set("User-Notifications." +r.getReporter(), notifications);
                 main.saveConfig();
                 main.reloadPluginConfig();
@@ -155,7 +155,7 @@ public class InventoryClickListener implements Listener {
         for (Player p : main.getServer().getOnlinePlayers()) {
             if (p.hasPermission("reportplus.receive")) {
                 if (p.hasPermission("reportplus.receive") || p.isOp()) {
-                    for (String s : main.getUtils().getMessagesConfig().getStringList("Minecraft-Report-Receive-Format")) {
+                    for (String s : main.getUtils().getLanguageConfig().getConfigData().getMinecraftReportReceiveFormat()) {
                         String translatedText = s.replace("%closer%", player.getName());
                         translatedText = translatedText.replace("%id%", r.getReportId() + ""); // {+ "" }to cast int to String
                         translatedText = translatedText.replace("%reason%", r.getReportContent());
@@ -189,11 +189,11 @@ public class InventoryClickListener implements Listener {
 
         inventory.remove(clicked);
         if(Bukkit.getPlayer(r.getReporter()) != null)
-            Bukkit.getPlayer(r.getReporter()).sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Report-Closed-Message").replace("%id%", String.valueOf(r.getReportId()))));
+            Bukkit.getPlayer(r.getReporter()).sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getReportClosedMessage().replace("%id%", String.valueOf(r.getReportId()))));
         else {
             if(main.getConfig().getStringList("User-Notifications." +r.getReporter()) != null){
                 List<String> notifications = main.getConfig().getStringList("User-Notifications." + r.getReporter());
-                notifications.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getMessagesConfig().getString("Report-Closed-Message").replace("%id%", String.valueOf(r.getReportId()))));
+                notifications.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getReportClosedMessage().replace("%id%", String.valueOf(r.getReportId()))));
                 main.getConfig().set("User-Notifications." + r.getReporter(), notifications);
                 main.saveConfig();
                 main.reloadPluginConfig();

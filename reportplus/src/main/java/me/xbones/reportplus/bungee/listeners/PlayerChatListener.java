@@ -23,7 +23,7 @@ public class PlayerChatListener implements Listener {
             if ((boolean)ConfigurationManager.get("Enabled-Modules.Chat-Sync")) {
                 if(e.getMessage().startsWith("/"))  return;
                 TextChannel channel = main.getJda().getTextChannelById((String) ConfigurationManager.get("Discord-MC-Channel-ID"));
-                String format = main.getReportPlus().getMessage("Minecraft-Chat-Format");
+                String format = main.getReportPlus().getLangData().getMinecraftChatFormat();
                 String newMessage = format.replace("%player%", player.getName()).replace("%message%", message).replace("%server%", main.getReportPlus().getServerName(new RPlayer(main, player.getName(),player.getUniqueId())));
                 channel.sendMessage(newMessage).queue();
             }
