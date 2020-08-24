@@ -355,11 +355,11 @@ ex.printStackTrace();
     public void onDisable() {
         super.onDisable();
         console.sendMessage(Utils.CCT("&c--- &6REPORTPLUS &c---"));
+        if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
+            core.getJda().getTextChannelById(Objects.requireNonNull(this.getConfig().getString("Server-Stop-Start-Channel"), "No server channel for server-stop provided")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Stop-Message")).queue();
         core.disconnectBot();
         console.sendMessage(Utils.CCT("&c    PLUGIN DISABLED   "));
         console.sendMessage(Utils.CCT("&c--- &6REPORTPLUS &c---"));
-        if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-            core.getJda().getTextChannelById(this.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Stop-Message")).queue();
 
     }
 

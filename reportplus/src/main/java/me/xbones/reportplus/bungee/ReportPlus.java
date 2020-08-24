@@ -149,16 +149,15 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
         disable = true;
         super.onDisable();
         console.sendMessage(new TextComponent(Utils.CCT("&c--- &6REPORTPLUS BUNGEE &c---")));
+        if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
+            core.getJda().getTextChannelById(this.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Stop-Message")).queue();
         core.disconnectBot();
         console.sendMessage(new TextComponent(Utils.CCT("&c    PLUGIN DISABLED   ")));
         console.sendMessage(new TextComponent(Utils.CCT("&c--- &6REPORTPLUS BUNGEE &c---")));
-        if(main.getConfig().getBoolean("Enabled-Modules.Server-Stop-Start"))
-            core.getJda().getTextChannelById(this.getConfig().getString("Server-Stop-Start-Channel")).sendMessage(main.getUtils().getMessagesConfig().getString("Server-Stop-Message")).queue();
 
 
     }
-
-    public void initConfig(){
+        public void initConfig(){
         try {
 
             if (!getDataFolder().exists())
