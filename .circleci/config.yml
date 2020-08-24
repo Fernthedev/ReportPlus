@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk:11-jdk
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -27,20 +27,25 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "pom.xml" }}
+            - v1-dependencies-{{ checksum "reportplus/pom.xml" }}
+            - v1-dependencies-{{ checksum "reportplus-api/pom.xml" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-#      - run: mvn dependency:go-offline
+      - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-dependencies-{{ checksum "pom.xml" }}
+          key:
+            - v1-dependencies-{{ checksum "pom.xml" }}
+            - v1-dependencies-{{ checksum "reportplus/pom.xml" }}
+            - v1-dependencies-{{ checksum "reportplus-api/pom.xml" }}
 
       # run tests!
  #     - run: mvn integration-test
       - run: mvn clean package
       
       - store_artifacts:
-          path: universal-reportplus/target/
+          path: reportplus/target/
           destination: jars
