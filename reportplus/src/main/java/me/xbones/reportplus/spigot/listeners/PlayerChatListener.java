@@ -13,6 +13,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PlayerChatListener implements Listener {
 
@@ -30,7 +31,7 @@ public class PlayerChatListener implements Listener {
         boolean PlayerInBothMode = main.getBothChosen().contains(e.getPlayer().getName());
         Player p = e.getPlayer();
         String reported = "Not Specified";
-        if(main.getReporting().containsKey(p))
+        if (main.getReporting().containsKey(p))
             reported = main.getReporting().get(p).getName();
 
         if (PlayerIsInMCMode) {
@@ -38,30 +39,29 @@ public class PlayerChatListener implements Listener {
 
             main.getMinecraftChosen().remove(p.getName());
 
-            if (main.getReporting().containsKey(p))
-                main.getReporting().remove(p);
+            main.getReporting().remove(p);
             e.setCancelled(true);
             return;
         } else if (PlayerInDiscordMode) {
 
-                main.getCore().reportToDiscord(new RPlayer(main.getCore(), p.getName(), p.getUniqueId()), reported, e.getMessage());
+            main.getCore().reportToDiscord(new RPlayer(main.getCore(), p.getName(), p.getUniqueId()), reported, e.getMessage());
             main.getDiscordChosen().remove(p.getName());
-            if (main.getReporting().containsKey(p))
-                main.getReporting().remove(p);
+            main.getReporting().remove(p);
             e.setCancelled(true);
             return;
-        } else if(PlayerInBothMode){
-                main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(), p.getUniqueId()), reported, e.getMessage());
+        } else if (PlayerInBothMode) {
+            main.getCore().reportToBoth(new RPlayer(main.getCore(), p.getName(), p.getUniqueId()), reported, e.getMessage());
             main.getBothChosen().remove(p.getName());
-            if(main.getReporting().containsKey(p)) main.getReporting().remove(p);
+            main.getReporting().remove(p);
+
             e.setCancelled(true);
             return;
-        }else if(main.getSendingMessage().contains(p.getName())){
+        } else if (main.getSendingMessage().contains(p.getName())) {
             Report selectedReport = main.getSelectedReports().get(p.getName());
             Player reportOwner = Bukkit.getPlayer(selectedReport.getReporter());
-            if(reportOwner != null){
+            if (reportOwner != null) {
                 reportOwner.sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", e.getPlayer().getName()).replace("%message%", e.getMessage())));
-            }else{
+            } else {
                 List<String> messages = new ArrayList<>();
                 messages.add(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getMessageNotificationFormat().replace("%sender%", e.getPlayer().getName()).replace("%message%", e.getMessage())));
                 main.getConfig().set("User-Notifications." + p.getName(), messages);
@@ -76,7 +76,7 @@ public class PlayerChatListener implements Listener {
         if (main.getConfig().getBoolean("Enabled-Modules.Chat-Sync")) {
             String prefix = "[Player]";
 
-            if(main.getConfig().getString("Chat-Sync-Rank-Value").equalsIgnoreCase("GROUP_NAME")) {
+            if (main.getConfig().getString("Chat-Sync-Rank-Value").equalsIgnoreCase("GROUP_NAME")) {
                 try {
 
                     if (main.getPermission().isEnabled() && main.getPermission().hasGroupSupport()) {
@@ -91,9 +91,7 @@ public class PlayerChatListener implements Listener {
                     System.out.println("No permissions plugin. ignoring");
                     System.out.println("--------");
                 }
-            }
-
-            else if(main.getConfig().getString("Chat-Sync-Rank-Value").equalsIgnoreCase("PREFIX")){
+            } else if (main.getConfig().getString("Chat-Sync-Rank-Value").equalsIgnoreCase("PREFIX")) {
                 try {
 
                     if (main.getChat().isEnabled()) {
@@ -112,14 +110,14 @@ public class PlayerChatListener implements Listener {
             }
 
             String message = main.getUtils().getLanguageConfig().getConfigData().getMinecraftChatFormat().replace("%player%", p.getName()).replace("%message%", e.getMessage()).replace("%rank%", prefix);
-            for(String bannedWord : main.getConfig().getStringList("Chat-Sync-Banned-Words")){
-                if ((message.toLowerCase().contains(bannedWord.toLowerCase()))){
+            for (String bannedWord : main.getConfig().getStringList("Chat-Sync-Banned-Words")) {
+                if ((message.toLowerCase().contains(bannedWord.toLowerCase()))) {
                     e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', main.getUtils().getLanguageConfig().getConfigData().getChatSyncBannedWord()));
                     return;
                 }
             }
 
-            main.getCore().getJda().getTextChannelById(main.getMCChannelID())
+            Objects.requireNonNull(main.getCore().getJda().getTextChannelById(main.getMCChannelID()), "Channel id provided for chat sync is not accessible")
                     .sendMessage(message).queue();
         }
 

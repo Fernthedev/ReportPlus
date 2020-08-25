@@ -120,30 +120,30 @@ public class Core {
 
     public void reportToStaff(IRPlayer player, String reported, String Message) {
 
-            boolean cancelled = reportPlus.callReportEvent(player,reported,Message,ReportType.MINECRAFT);
-            if(cancelled) return;
+        boolean cancelled = reportPlus.callReportEvent(player, reported, Message, ReportType.MINECRAFT);
+        if (cancelled) return;
 
         String title = reportPlus.getLangData().getMinecraftReportTitleMessageTitle()
                 .replace("%player%", player.getName()).replace("%report%", Message);
         String subtitle = reportPlus.getLangData().getDiscordReportTitleMessageSubtitle()
-                .replace("%player%",player.getName()).replace("%report%", Message);
+                .replace("%player%", player.getName()).replace("%report%", Message);
 
 
-        reportPlus.broadcastNewReport(player,title,subtitle,reported,Message);
+        reportPlus.broadcastNewReport(player, title, subtitle, reported, Message);
 
         int reportID;
         try {
             reportID = reportPlus.getReports().get(reportPlus.getReports().size() - 1).getReportId() + 1;
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             reportID = 1;
         }
-        Report r = new Report(reportID, player.getName(), reported, Message, ReportType.MINECRAFT,getReportPlus().getServerName(player));
+        Report r = new Report(reportID, player.getName(), reported, Message, ReportType.MINECRAFT, getReportPlus().getServerName(player));
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
         r.setDate(dtf.format(now));
         reportPlus.getSqlManager().addReportToDatabase(r);
         reportPlus.getReports().add(r);
-        if(!(Boolean)ConfigurationManager.get(  "Enabled-Modules.MySQL.Enabled"))
+        if (!(Boolean) ConfigurationManager.get("Enabled-Modules.MySQL.Enabled"))
             reportPlus.saveReportsToConfig();
         player.sendMessage(ChatColor.translateAlternateColorCodes('&', reportPlus.getPrefix() + " " + reportPlus.getLangData().getSuccessReport()).replace("%id%", String.valueOf(r.getReportId())));
     }
