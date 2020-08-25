@@ -34,6 +34,8 @@ public class InventoryClickListener implements Listener {
 
         Universal.debug("Inventory title: (no color) " + translateAndStrip(event.getView().getTitle()));
 
+        if (main.getRPInventoryManager().getReportInventory() == null) return;
+
         Universal.debug("Checking (no color) " + translateAndStrip(main.getRPInventoryManager().getReportInventory().getTitle()));
 
         try {
