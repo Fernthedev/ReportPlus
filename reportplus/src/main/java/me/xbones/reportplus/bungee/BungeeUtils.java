@@ -1,5 +1,6 @@
 package me.xbones.reportplus.bungee;
 
+
 import com.github.fernthedev.config.common.Config;
 import com.github.fernthedev.config.gson.GsonConfig;
 import com.github.fernthedev.fernapi.universal.Universal;

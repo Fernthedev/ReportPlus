@@ -276,6 +276,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     public void initializeCommands() {
+        Universal.getLogger().info("Initializing commands");
         Universal.getCommandHandler().registerCommand(new ReportCommand(this));
         Universal.getCommandHandler().registerCommand(new TXTCmd(this));
         Universal.getCommandHandler().registerCommand(new CmdCMD(this));
