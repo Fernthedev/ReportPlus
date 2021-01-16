@@ -1,5 +1,6 @@
 package me.xbones.reportplus.core;
 
+import com.github.fernthedev.fernapi.universal.Universal;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import com.github.fernthedev.fernapi.universal.util.UUIDFetcher;
 import lombok.NonNull;
@@ -14,11 +15,14 @@ import me.xbones.reportplus.core.eventlisteners.ReadyEventListener;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 import javax.security.auth.login.LoginException;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.EnumSet;
+import java.util.concurrent.CompletableFuture;
 
 public class Core {
 
@@ -28,16 +32,27 @@ public class Core {
    private String commandPrefix;
    private boolean Bungeecord = false;
 
-    public void initializeBot(IReportPlus reportPlus, String token, String prefix) throws LoginException, InterruptedException
+    public CompletableFuture<Void> initializeBot(IReportPlus reportPlus, String token, String prefix) throws LoginException, InterruptedException
     {
         this.reportPlus=reportPlus;
 
         this.commandPrefix = prefix;
-            jda = new JDABuilder(token)
-                .addEventListeners(new MessageCreatedListener(this), new ReadyEventListener(this))
-                .build();
 
-        jda.awaitReady();
+        jda = JDABuilder.create(token, EnumSet.allOf(GatewayIntent.class))
+            .addEventListeners(new MessageCreatedListener(this), new ReadyEventListener(this))
+            .build();
+
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            try {
+                Universal.getLogger().info("Awaiting Bot success");
+                jda.awaitReady();
+                Universal.getLogger().info("Bot successfully started");
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+
 
         if ((boolean)ConfigurationManager.get("Change-Game")) {
             reportPlus.setGame(jda);
@@ -46,6 +61,7 @@ public class Core {
         api = new ReportPlusAPIHandler(this);
         ReportPlusAPI.getInstance().setup(api);
 
+        return future;
     }
 
     public ReportPlusAPIHandler getApi() {

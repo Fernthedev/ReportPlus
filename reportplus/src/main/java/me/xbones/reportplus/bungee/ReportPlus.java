@@ -96,7 +96,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
 
         try {
-            core.initializeBot(this, TOKEN  , cmdPrefix);
+            core.initializeBot(this, TOKEN  , cmdPrefix).get(30, TimeUnit.SECONDS);
         }catch(Exception ex){
             console.sendMessage(new TextComponent(Utils.CCT("&c ERROR INITIALIZING BOT  ")));
             ex.printStackTrace();

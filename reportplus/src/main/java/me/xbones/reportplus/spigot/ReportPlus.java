@@ -42,6 +42,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.util.*;
 import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 
 
 public class ReportPlus extends FernSpigotAPI implements IReportPlus {
@@ -96,7 +97,7 @@ public class ReportPlus extends FernSpigotAPI implements IReportPlus {
         initializeVariables();
 
         try {
-            core.initializeBot(this, TOKEN, cmdPrefix);
+            core.initializeBot(this, TOKEN  , cmdPrefix).get(30, TimeUnit.SECONDS);
         }catch(Exception ex){
             console.sendMessage(Utils.CCT("&c ERROR INITIALIZING BOT  "));
             ex.printStackTrace();
