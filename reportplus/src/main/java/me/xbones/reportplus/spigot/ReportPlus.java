@@ -184,6 +184,7 @@ ex.printStackTrace();
     }
 
     public void initializeEvents(){
+        Universal.getLogger().info("Initializing events");
         PluginManager manager = getServer().getPluginManager();
         inventoryClickListener = new InventoryClickListener(this);
         manager.registerEvents(inventoryClickListener, this);
@@ -193,6 +194,7 @@ ex.printStackTrace();
         manager.registerEvents(new PlayerJoinListener(this), this);
         manager.registerEvents(new PlayerLeaveListener(this), this);
         manager.registerEvents(new PlayerReportListener(this),this);
+        Universal.getLogger().info("Finished initializing events");
     }
 
     private boolean setupChat(){
@@ -257,6 +259,7 @@ ex.printStackTrace();
     public SpigotUtils getUtils(){return utils;}
 
     public void initializeCommands() {
+        Universal.getLogger().info("Initializing commands");
         Universal.getCommandHandler().registerCommand(new ReportCommand(this));
         Universal.getCommandHandler().registerCommand(new TXTCmd(this));
         Universal.getCommandHandler().registerCommand(new CmdCMD(this));
@@ -285,7 +288,7 @@ ex.printStackTrace();
             }
         }
 
-
+        Universal.getLogger().info("Finished initializing commands");
     }
 
 

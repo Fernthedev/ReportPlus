@@ -227,12 +227,14 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
     }
 
     public void initializeEvents(){
+        Universal.getLogger().info("Initializing Events");
         PluginManager manager = getProxy().getPluginManager();
         manager.registerListener(this, new PlayerChatListener(core));
         manager.registerListener(this, new PlayerCommandListener(core, this));
         manager.registerListener(this,new PlayerJoinListener(core,this));
         manager.registerListener(this,new PlayerLeaveListener(core,this));
         manager.registerListener(this, new PlayerReportListener(this));
+        Universal.getLogger().info("Finished initializing events");
     }
 
     public Core getCore() {
@@ -303,8 +305,7 @@ public class ReportPlus extends FernBungeeAPI implements IReportPlus {
 
             }
         }
-
-
+        Universal.getLogger().info("Initialized commands");
     }
 
     static <T> List<List<T>> chopped(List<T> list, final int L) {
