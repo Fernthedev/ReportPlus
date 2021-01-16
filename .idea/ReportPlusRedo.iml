@@ -22,7 +22,6 @@
     <orderEntry type="library" name="Maven: com.github.Fernthedev.FernAPI:all:1.9.0-rc3" level="project" />
     <orderEntry type="library" name="Maven: com.github.Fernthedev.FernAPI:core:1.9.0-rc3" level="project" />
     <orderEntry type="library" name="Maven: co.aikar:acf-core:0.5.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.6.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:28.2-jre" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:failureaccess:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
@@ -60,6 +59,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.alibaba:fastjson:1.2.62" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.snakeyaml:snakeyaml-engine:2.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.6" level="project" />
+    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.7.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.github.MilkBowl:VaultAPI:1.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.bukkit:bukkit:1.13.1-R0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
@@ -68,7 +68,7 @@
     <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.logging.log4j:log4j-api:2.13.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.apache.logging.log4j:log4j-core:2.13.3" level="project" />
-    <orderEntry type="library" name="Maven: net.dv8tion:JDA:4.2.0_183" level="project" />
+    <orderEntry type="library" name="Maven: net.dv8tion:JDA:4.2.0_227" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:16.0.1" level="project" />
     <orderEntry type="library" name="Maven: com.neovisionaries:nv-websocket-client:2.10" level="project" />

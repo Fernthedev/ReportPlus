@@ -4,6 +4,7 @@ package me.xbones.reportplus.core.MySQL;
 import com.github.fernthedev.fernapi.universal.data.chat.ChatColor;
 import me.xbones.reportplus.core.IReportPlus;
 import me.xbones.reportplus.core.Utils;
+import org.mariadb.jdbc.Driver;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -35,11 +36,13 @@ public class MySQL
         }
         disconnect(false);
         try {
+            Class.forName("org.mariadb.jdbc.Driver");
             con = java.sql.DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database, user, password);
             reportPlus.sendConsole(Utils.CCT("   &aMYSQL CONNECTED   "));
 
         } catch (Exception e) {
             reportPlus.sendConsole(ChatColor.RED + "MySQL Connect Error: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
