@@ -21,7 +21,6 @@ import javax.security.auth.login.LoginException;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.EnumSet;
 import java.util.concurrent.CompletableFuture;
 
 public class Core {
@@ -38,7 +37,7 @@ public class Core {
 
         this.commandPrefix = prefix;
 
-        jda = JDABuilder.create(token, EnumSet.allOf(GatewayIntent.class))
+        jda = JDABuilder.create(token, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES)
             .addEventListeners(new MessageCreatedListener(this), new ReadyEventListener(this))
             .build();
 
