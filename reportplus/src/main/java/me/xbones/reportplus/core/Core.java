@@ -37,7 +37,7 @@ public class Core {
 
         this.commandPrefix = prefix;
 
-        jda = JDABuilder.create(token, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_MESSAGES)
+        jda = JDABuilder.createDefault(token)
             .addEventListeners(new MessageCreatedListener(this), new ReadyEventListener(this))
             .build();
 
