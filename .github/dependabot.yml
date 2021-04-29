@@ -1,0 +1,29 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.github.ConnorLinfoot:TitleAPI
+    versions:
+    - "> LATEST"
+  - dependency-name: net.dv8tion:JDA
+    versions:
+    - 4.2.0_228
+    - 4.2.0_229
+    - 4.2.0_230
+    - 4.2.0_231
+    - 4.2.0_236
+    - 4.2.0_239
+    - 4.2.0_240
+    - 4.2.0_241
+    - 4.2.0_242
+    - 4.2.0_245
+  - dependency-name: org.projectlombok:lombok
+    versions:
+    - 1.18.18
+  - dependency-name: org.apache.logging.log4j:log4j-api
+    versions:
+    - 2.14.0
